@@ -4,21 +4,50 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public int maxItems;
-    [SerializeField] private int maxSlot = 20;
-    [SerializeField] public List<ItemData> items;
-    // public List<ItemData> items = new List<ItemData>();
+    public static Inventory Instance;
+    private Dictionary<ItemData, InventoryItem> itemDictionary;
+    public List<InventoryItem> inventory { get; private set;}
 
-    public bool AddItem(ItemData itemData)
+    private void Awake() {
+        inventory = new List<InventoryItem>();
+        itemDictionary = new Dictionary<ItemData, InventoryItem>();
+
+        Instance = this;
+    }
+
+    public void AddItem(ItemData itemData)
     {
-        items.Add(itemData);
-        return true;
+        if(itemDictionary.TryGetValue(itemData, out InventoryItem value))
+        {
+            value.AddToStack();
+        }
+        else {
+            InventoryItem newItem = new InventoryItem(itemData);
+            inventory.Add(newItem);
+            itemDictionary.Add(itemData, newItem);
+        }
     }
 
 
-    // Phương thức xóa vật phẩm khỏi kho đồ
-    public void RemoveItem(ItemData item)
+    public void RemoveItem(ItemData itemData)
     {
-        items.Remove(item);
+        if(itemDictionary.TryGetValue(itemData, out InventoryItem value))
+        {
+            value.RemoveFromStack();
+
+            if(value.stackSize == 0)
+            {
+                inventory.Remove(value);
+                itemDictionary.Remove(itemData);
+            }
+        }
+    }
+
+    public InventoryItem Get(ItemData itemData){
+        if (itemDictionary.TryGetValue(itemData, out InventoryItem value))
+        {
+            return value;
+        }
+        return null;
     }
 }

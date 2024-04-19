@@ -2,12 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Prob : MonoBehaviour
+public class Item : MonoBehaviour
 {
+    // public ItemData referenceItem;
 
+    const string INVENTORYCANVAS = "InventoryCanvas";
     [SerializeField] private float droppingSpeed;
-    private void Start() {
 
+    [SerializeField] private string itemName;
+
+    [SerializeField] private Sprite itemIcon;
+
+    [SerializeField] private int quantity;
+
+    [TextArea]
+    [SerializeField] private string itemDescription;
+
+    private InventoryManager inventoryManager;
+    private void Start() {
+        inventoryManager = GameObject.Find(INVENTORYCANVAS).GetComponent<InventoryManager>(); 
     }
     private void Update() {
         transform.Translate(Vector2.down * droppingSpeed * Time.deltaTime);
@@ -21,7 +34,8 @@ public class Prob : MonoBehaviour
         }
 
         if (other.gameObject.CompareTag("Player"))
-        {
+        {   
+            inventoryManager.AddItem(itemName, itemIcon, quantity, itemDescription);
             Destroy(gameObject);
             Debug.Log("Prob touched the player.");
         }
