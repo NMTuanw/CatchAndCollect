@@ -42,16 +42,21 @@ public class InventoryManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void AddItem(string itemName, Sprite itemIcon, int quantity, string itemDescription)
+    public int AddItem(string itemName, Sprite itemIcon, int quantity, string itemDescription)
     {
         for (int i = 0; i < itemSlot.Length; i++)
         {
-            if (itemSlot[i].isFull == false)
+            if (itemSlot[i].isFull == false && itemSlot[i].itemName == itemName || itemSlot[i].quantity == 0)
             {
-                itemSlot[i].AddItem(itemName, itemIcon, quantity, itemDescription); // AddItemToSlot
-                return;
+                int leftOverItems = itemSlot[i].AddItem(itemName, itemIcon, quantity, itemDescription); // AddItemToSlot
+                if (leftOverItems > 0)
+                    leftOverItems = AddItem(itemName, itemIcon, leftOverItems, itemDescription);
+
+
+                    return leftOverItems;
             }
         } 
+        return quantity;
     }
 
     public void DeselectAllSlots()

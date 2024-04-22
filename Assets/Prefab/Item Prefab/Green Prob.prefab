@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8552894078114146314}
   - component: {fileID: 4747715172822213836}
-  - component: {fileID: 4675010565639066627}
-  - component: {fileID: 1933571528926953369}
+  - component: {fileID: -6901614327473308038}
+  - component: {fileID: 1707722304505623035}
   - component: {fileID: -3625792461954689947}
   m_Layer: 0
-  m_Name: Yellow Prob
+  m_Name: Green Prob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1418688919, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
+  m_Sprite: {fileID: 257915879, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &4675010565639066627
+--- !u!70 &-6901614327473308038
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,9 +120,9 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.15, y: 0.16}
+  m_Size: {x: 0.16, y: 0.15}
   m_Direction: 0
---- !u!50 &1933571528926953369
+--- !u!50 &1707722304505623035
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ Rigidbody2D:
   m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.5
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -161,10 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5ec124f65afe014f9e8e01b0ef69757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droppingSpeed: 1
-  itemName: Banana
-  itemIcon: {fileID: -1418688919, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
+  droppingSpeed: 5
+  itemName: Pump
+  itemIcon: {fileID: 257915879, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
   quantity: 1
-  itemDescription: 'Yellow Banana
-
-'
+  itemDescription: Pump Pump Pump Pump
