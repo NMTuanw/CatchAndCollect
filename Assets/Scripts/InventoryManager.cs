@@ -10,6 +10,8 @@ public class InventoryManager : MonoBehaviour
 
     public ItemSlot[] itemSlot;
 
+    public ItemSO[] itemSOs;
+
     private void Update()
     {
         HandleInventoryMenu();
@@ -40,6 +42,19 @@ public class InventoryManager : MonoBehaviour
         menuActivated = false;
 
         Time.timeScale = 1;
+    }
+
+    public bool UseItem(string itemName)
+    {
+        for(int i = 0; i < itemSOs.Length; i++)
+        {
+            if (itemSOs[i].itemName == itemName)
+            {
+                bool usable = itemSOs[i].UseItem();
+                return usable;
+            }
+        }   
+        return false;
     }
 
     public int AddItem(string itemName, Sprite itemIcon, int quantity, string itemDescription)

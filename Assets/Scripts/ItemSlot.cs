@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -93,20 +94,76 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnLeftClick()
     {
-        inventoryManager.DeselectAllSlots();
-        selectedSlot.SetActive(true);
-        isSlotSelected = true;
+        /////~~~~~~~~~~
+        if (isSlotSelected)
+        {
+            bool usable = inventoryManager.UseItem(itemName);
+            if (usable)
+            {
+                this.quantity -= 1;
+                quantityText.text = this.quantity.ToString();
+                if (this.quantity <= 0)
+                    EmptySlot();
+            }
+        }
 
-        itemDescriptionImage.sprite = itemIcon;
-        itemDescriptionNameText.text = itemName;
-        itemDescriptionText.text = itemDescription;
+        else {
+            inventoryManager.DeselectAllSlots();
+            selectedSlot.SetActive(true);
+            isSlotSelected = true;
 
-        if (itemDescriptionImage.sprite == null)
-            itemDescriptionImage.sprite = emptySlotIcon;
+            itemDescriptionImage.sprite = itemIcon; // loi item icon
+            itemDescriptionNameText.text = itemName;
+            itemDescriptionText.text = itemDescription;
+
+            if (itemDescriptionImage.sprite == null)
+                itemDescriptionImage.sprite = emptySlotIcon;
+        }
+    }
+
+    private void EmptySlot()
+    {
+        isFull = false;
+        quantityText.enabled = false;
+        itemImage.sprite = emptySlotIcon;
+        itemDescription = "";
+        itemName = "";
+
+        itemDescriptionImage.sprite = emptySlotIcon;
+        itemDescriptionNameText.text = "";
+        itemDescriptionText.text = "";
     }
 
     public void OnRightClick()
     {
+        if (this.quantity > 0)
+        {
+            // Create new Item
+            GameObject itemToDrop = new GameObject(itemName);
+            Item newItem = itemToDrop.AddComponent<Item>();
+            newItem.quantity = 1;
+            newItem.itemName = itemName;
+            newItem.itemIcon = itemIcon;
+            newItem.itemDescription = itemDescription;
 
+            // Create and modify the SR
+            SpriteRenderer sr = itemToDrop.AddComponent<SpriteRenderer>();
+            sr.sprite = itemIcon;
+            sr.sortingOrder = 5;
+
+            // Add Collider
+            BoxCollider2D itemToDropCollider = itemToDrop.AddComponent<BoxCollider2D>();
+            itemToDropCollider.isTrigger = true;
+
+            // Set position
+            itemToDrop.transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(2, 0, 0);
+            itemToDrop.transform.localScale = new Vector3(10f, 10f, 10f);
+            
+            // Subtract the item
+            this.quantity -= 1;
+            quantityText.text = this.quantity.ToString();
+            if (this.quantity <= 0)
+                EmptySlot();
+        }
     }
 }

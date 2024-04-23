@@ -9,14 +9,14 @@ public class Item : MonoBehaviour
     const string INVENTORYCANVAS = "InventoryCanvas";
     [SerializeField] private float droppingSpeed;
 
-    [SerializeField] private string itemName;
+    [SerializeField] public string itemName;
 
-    [SerializeField] private Sprite itemIcon;
+    [SerializeField] public Sprite itemIcon;
 
-    [SerializeField] private int quantity;
+    [SerializeField] public int quantity;
 
     [TextArea]
-    [SerializeField] private string itemDescription;
+    [SerializeField] public string itemDescription;
 
     private InventoryManager inventoryManager;
     private void Start() {
@@ -26,7 +26,27 @@ public class Item : MonoBehaviour
         transform.Translate(Vector2.down * droppingSpeed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    // private void OnCollisionEnter2D(Collision2D other) {
+    //     if (other.gameObject.CompareTag("Ground"))
+    //     {
+    //         Destroy(gameObject);
+    //         Debug.Log("Prob touched the ground.");
+    //     }
+
+    //     if (other.gameObject.CompareTag("Player"))
+    //     {   
+    //         int leftOverItems = inventoryManager.AddItem(itemName, itemIcon, quantity, itemDescription);
+    //         if (leftOverItems <= 0)
+    //         {
+    //             Destroy(gameObject);
+    //         } else {
+    //             quantity = leftOverItems;
+    //         }
+    //         Debug.Log("Prob touched the player.");
+    //     }
+    // }
+
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);

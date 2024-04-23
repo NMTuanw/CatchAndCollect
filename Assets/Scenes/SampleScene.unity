@@ -576,6 +576,8 @@ MonoBehaviour:
   - {fileID: 987494814}
   - {fileID: 888855379}
   - {fileID: 495701444}
+  itemSOs:
+  - {fileID: 11400000, guid: 179690a8a79bac34a989047b463570c7, type: 2}
 --- !u!114 &174328147
 MonoBehaviour:
   m_ObjectHideFlags: 0
