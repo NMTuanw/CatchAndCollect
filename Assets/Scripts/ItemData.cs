@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Item Data")]
 public class ItemData : ScriptableObject
 {
-    public string itemName;
-    public Sprite itemSprite;
+    public string id;
+    public string displayName;
+    public Sprite icon;
+
+    public GameObject prefab;
 
     public int sellPrice;
     public int buyPrice;
 
-    public int defaultMaxStack = 20;
     [TextArea]
     public string itemDescription;
 }

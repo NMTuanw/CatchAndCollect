@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Inventory playerInventory;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float jumpForce;
 
@@ -33,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
 
-        playerInventory = new();
     }
     private void Update() {
         HandleMovement();
