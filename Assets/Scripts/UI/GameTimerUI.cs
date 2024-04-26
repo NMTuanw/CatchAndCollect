@@ -5,20 +5,30 @@ using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TimerUI : MonoBehaviour
+public class GameTimerUI : MonoBehaviour
 {
     public float countDownTime;
     public TextMeshProUGUI timerText;
     public Image fill;
-
     public float Max;
-
-    private void Start()
+    private bool gameStarted;
+    
+    private void Awake()
     {
-        
+        GameStartCoundownUI.GameStartCountdownFinished += StartGameTimer;
     }
-
     private void Update()
+    {
+        if (gameStarted)
+        {
+            CountdownGameTimer();
+        }
+    }
+    private void StartGameTimer()
+    {
+        gameStarted = true;
+    }
+    private void CountdownGameTimer()
     {
         countDownTime -= Time.deltaTime;
         timerText.text =  "" + (int)countDownTime;
@@ -27,9 +37,7 @@ public class TimerUI : MonoBehaviour
         if (countDownTime < 0)
         {
             countDownTime = 0;
-            // Chay UI het thoi gian
+            // GameOver
         }
     }
-
-
 }

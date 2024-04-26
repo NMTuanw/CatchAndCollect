@@ -24,6 +24,7 @@ public class HealthManager : MonoBehaviour
         if (healthUI.health <= 0)
         {
             Die();
+            //GameManager.Instance.GameOver();
         }
     }
 
