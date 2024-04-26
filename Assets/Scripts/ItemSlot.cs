@@ -155,6 +155,9 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             BoxCollider2D itemToDropCollider = itemToDrop.AddComponent<BoxCollider2D>();
             itemToDropCollider.isTrigger = true;
 
+            // Add Rigidbody
+            Rigidbody2D itemToDropRigidBody2D = itemToDrop.AddComponent<Rigidbody2D>();
+
             // Set position
             itemToDrop.transform.position = GameObject.FindWithTag("Player").transform.position + new Vector3(2, 0, 0);
             itemToDrop.transform.localScale = new Vector3(10f, 10f, 10f);
