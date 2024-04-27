@@ -15,8 +15,14 @@ public class GameTimerUI : MonoBehaviour
     
     private void Awake()
     {
-        GameStartCoundownUI.GameStartCountdownFinished += StartGameTimer;
+        GameStartCoundownUI.GameStartCountdownFinished += GameStartCoundownUI_GameStartCountdownFinished; ;
     }
+
+    private void GameStartCoundownUI_GameStartCountdownFinished()
+    {
+        gameStarted = true;
+    }
+
     private void Update()
     {
         if (gameStarted)
@@ -24,10 +30,7 @@ public class GameTimerUI : MonoBehaviour
             CountdownGameTimer();
         }
     }
-    private void StartGameTimer()
-    {
-        gameStarted = true;
-    }
+
     private void CountdownGameTimer()
     {
         countDownTime -= Time.deltaTime;

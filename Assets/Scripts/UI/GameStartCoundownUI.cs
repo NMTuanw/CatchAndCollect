@@ -31,12 +31,13 @@ public class GameStartCoundownUI : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
+
         Hide();
 
         GameStartCountdownFinished?.Invoke();
     }
     private void Show(){
-        TimerCountdownToStartUI.SetActive(false);
+        TimerCountdownToStartUI.SetActive(true);
     }
 
     private void Hide(){

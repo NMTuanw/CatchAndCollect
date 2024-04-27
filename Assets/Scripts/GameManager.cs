@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     
-    public event EventHandler OnGamePaused;
-    public event EventHandler OnGameUnPaused;
+    public event EventHandler OnGameOptionOpen;
+    public event EventHandler OnGameOptionClose;
 
     [SerializeField] private float countdownToStartTimer = 3f;
     [SerializeField] private float gameTimer;
@@ -30,11 +30,11 @@ public class GameManager : MonoBehaviour
         if (isGamePaused)
         {
             Time.timeScale = 0;
-            OnGamePaused?.Invoke(this, EventArgs.Empty);
+            OnGameOptionOpen?.Invoke(this, EventArgs.Empty);
         } else
         {
             Time.timeScale = 1f;
-            OnGameUnPaused?.Invoke(this, EventArgs.Empty);
+            OnGameOptionClose?.Invoke(this, EventArgs.Empty);
         }
     }
 
