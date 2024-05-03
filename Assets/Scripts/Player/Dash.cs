@@ -4,54 +4,57 @@ using UnityEngine;
 
 public class Dash : MonoBehaviour
 {
-[Header("Dashing")]
+    [Header("Dashing")]
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCooldown;
     
-    private bool isGrounded;
-    private bool isDashing;
-
-    private float dashTimeLeft = 0;
-
-    private float lastDash = 0;
+    
+    private bool isDashing = false;
+    private bool canDash = true;
 
     private Rigidbody2D rb2D;
-    private Animator animator;
 
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
-        animator = GetComponentInChildren<Animator>();
+
     }
 
     private void Update() {
         HandleDash();
 
-        animator.SetFloat("xVelocity", Mathf.Abs(rb2D.velocity.x));
-        animator.SetFloat("yVelocity", rb2D.velocity.y);
     }
 
     private void HandleDash()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-
-        if (Input.GetKeyDown(KeyCode.F) && Time.time >= lastDash + dashCooldown)
+        if (Input.GetKeyDown(KeyCode.F) && canDash && !isDashing)
         {
-            isDashing = true;
-            dashTimeLeft = dashDuration;
-            lastDash = Time.time;
+            StartCoroutine(Dashing());
+        }
+    }
+
+    
+    IEnumerator Dashing()
+    {
+        isDashing = true;
+        canDash = false;
+
+        // Luu lai thoi gian da troi qua trong qua trinh dash
+        float startTime = Time.time;
+
+        while (Time.time < startTime + dashDuration)
+        {
+            rb2D.velocity = transform.right * dashSpeed;
+            yield return null;
         }
 
-        if (isDashing)
-        {
-            rb2D.velocity = new Vector2(rb2D.velocity.x, 0f); // Reset vertical velocity
-            rb2D.velocity += Vector2.right * dashSpeed * Mathf.Sign(moveHorizontal);
-            dashTimeLeft -= Time.deltaTime;
+        //  tốc độ của đối tượng người chơi được đặt lại thành 0, ngăn đối tượng di chuyển tiếp sau khi dash
+        rb2D.velocity = Vector2.zero;
 
-            if (dashTimeLeft <= 0f)
-            {
-                isDashing = false;
-            }
-        }
+        // Đảm bảo isDashing được đặt lại thành false khi hành động kết thúc
+        isDashing = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }
