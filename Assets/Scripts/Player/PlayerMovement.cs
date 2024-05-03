@@ -31,14 +31,14 @@ public class PlayerMovement : MonoBehaviour
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
-
     }
+
     private void Update() {
         HandleMovement();
         HandleJump();
         HandleDash();
 
-        animator.SetFloat("xVelocity", Math.Abs(rb2D.velocity.x));
+        animator.SetFloat("xVelocity", Mathf.Abs(rb2D.velocity.x));
         animator.SetFloat("yVelocity", rb2D.velocity.y);
     }
 

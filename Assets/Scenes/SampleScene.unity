@@ -2525,7 +2525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -500, y: -100}
+  m_AnchoredPosition: {x: -103, y: -260}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450322349
@@ -7426,6 +7426,9 @@ GameObject:
   - component: {fileID: 1197475602}
   - component: {fileID: 1197475605}
   - component: {fileID: 1197475604}
+  - component: {fileID: 1197475608}
+  - component: {fileID: 1197475607}
+  - component: {fileID: 1197475606}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -7484,7 +7487,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197475600}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd9efdad57686c444a694047e981c2a4, type: 3}
   m_Name: 
@@ -7534,6 +7537,52 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.2, y: 0.25}
   m_Direction: 0
+--- !u!114 &1197475606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197475600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69efc81a1c73dc44b9350c04dd288031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 7
+  groundCheckPosition: {fileID: 269130685}
+  raycastDistance: 0.5
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &1197475607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197475600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c95f3727cf0ff4a8f13c6ce02e41d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 20
+  dashDuration: 0.2
+  dashCooldown: 1
+--- !u!114 &1197475608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197475600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be181ad8250d534a84beff2f3e76d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 10
 --- !u!1 &1212688305
 GameObject:
   m_ObjectHideFlags: 0
@@ -7552,7 +7601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1212688306
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7678,9 +7727,9 @@ MonoBehaviour:
   - {fileID: 2478528115376596334, guid: 2b7355cc942fd6649a430e204090400b, type: 3}
   - {fileID: 2478528115376596334, guid: 6f019ca06b1d4674ea06292d1806e12b, type: 3}
   - {fileID: 2478528115376596334, guid: cf7e73053686ebc4bba8c9a8d4199ad8, type: 3}
-  probSpawnTime: 0.5
-  minSpawnPositionX: -15
-  maxSpawnPositionX: 15
+  probSpawnTime: 1.5
+  minSpawnPositionX: -13
+  maxSpawnPositionX: 13
 --- !u!1 &1228276595
 GameObject:
   m_ObjectHideFlags: 0
