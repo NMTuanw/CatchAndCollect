@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameTimerUI : MonoBehaviour
 {
-    public float countDownTime;
+    public float countDownTime; // float thi moi dung Time.deltatime duoc
     public TextMeshProUGUI timerText;
     public Image fill;
     public float Max;

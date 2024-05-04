@@ -8,6 +8,8 @@ public class Dash : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCooldown;
+
+    public float DashCooldown { get; set;}
     
     
     private bool isDashing = false;
@@ -17,11 +19,12 @@ public class Dash : MonoBehaviour
 
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
-
+        DashCooldown = dashCooldown;
     }
 
     private void Update() {
         HandleDash();
+        //Debug.Log(DashDuration); 
 
     }
 
