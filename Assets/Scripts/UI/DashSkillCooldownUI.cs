@@ -14,9 +14,10 @@ public class DashSkillCooldownUI : MonoBehaviour
 
     private void Start()
     {
-        dashCooldownImage.fillAmount = 0;
         dashScript = FindObjectOfType<Dash>();
 
+        dashCooldownImage.fillAmount = 0;
+        
         if (dashScript != null)
         {
             cooldownTimer = dashScript.DashCooldown;
@@ -41,16 +42,7 @@ public class DashSkillCooldownUI : MonoBehaviour
 
         if (isCooldown)
         {
-            cooldownTimer -= Time.deltaTime;
-
-            if (cooldownTimer <= 0)
-            {
-                cooldownTimer = 0;
-                isCooldown = false;
-            }
-
-            float fillAmount = Mathf.Clamp01(cooldownTimer / dashScript.DashCooldown);
-            dashCooldownImage.fillAmount = fillAmount;
+            SkillCooldownUI();
         }
     }
 
@@ -58,5 +50,19 @@ public class DashSkillCooldownUI : MonoBehaviour
     {
         isCooldown = true;
         cooldownTimer = dashScript.DashCooldown;
+    }
+
+    private void SkillCooldownUI()
+    {
+        cooldownTimer -= Time.deltaTime;
+
+        if (cooldownTimer <= 0)
+        {
+            cooldownTimer = 0;
+            isCooldown = false;
+        }
+
+        float fillAmount = Mathf.Clamp01(cooldownTimer / dashScript.DashCooldown);
+        dashCooldownImage.fillAmount = fillAmount;
     }
 }

@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2478528115376596334}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1418688919, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
+  m_Sprite: {fileID: -1464665907, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,9 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droppingSpeed: 5
-  itemName: Banana
+  itemName: Yellow Apple
   itemIcon: {fileID: -1418688919, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
   quantity: 1
-  itemDescription: 'Yellow Banana
+  itemDescription: 'Yellow Apple
 
 '

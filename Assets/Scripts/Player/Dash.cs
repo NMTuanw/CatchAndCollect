@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Dash : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class Dash : MonoBehaviour
 
     public float DashCooldown { get; set;}
     
-    
+    private Rigidbody2D rb2D;
+
     private bool isDashing = false;
     private bool canDash = true;
 
-    private Rigidbody2D rb2D;
+    private bool isFacingRight = true;
+
 
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
@@ -24,30 +27,39 @@ public class Dash : MonoBehaviour
 
     private void Update() {
         HandleDash();
-        //Debug.Log(DashDuration); 
+        
+        float horizontal = Input.GetAxis("Horizontal");
 
+        if (horizontal > 0)
+        {
+            isFacingRight = true;
+        }
+        else if (horizontal < 0)
+        {
+            isFacingRight = false;
+        }
     }
-
     private void HandleDash()
     {
-        if (Input.GetKeyDown(KeyCode.F) && canDash && !isDashing)
+        if (Input.GetKeyDown(KeyCode.F) && canDash)
         {
             StartCoroutine(Dashing());
         }
     }
-
     
     IEnumerator Dashing()
     {
         isDashing = true;
         canDash = false;
 
-        // Luu lai thoi gian da troi qua trong qua trinh dash
+        // Luu lai thoi gian da troi qua trong qua trinh dash   
         float startTime = Time.time;
+
+        Vector2 dashDirection = isFacingRight ? Vector2.right : Vector2.left;
 
         while (Time.time < startTime + dashDuration)
         {
-            rb2D.velocity = transform.right * dashSpeed;
+            rb2D.velocity = dashDirection * dashSpeed;
             yield return null;
         }
 

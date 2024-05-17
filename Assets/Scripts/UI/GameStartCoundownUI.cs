@@ -11,7 +11,7 @@ public class GameStartCoundownUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerCountdownToStartText;
     
     [SerializeField] private float timerCountdownToStart;
-    // Start is called before the first frame update
+
     private void Start()
     {
         StartCoroutine(StartCountdown());

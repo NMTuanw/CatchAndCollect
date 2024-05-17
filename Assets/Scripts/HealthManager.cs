@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
+    public static HealthManager instance;
     public HealthUI healthUI;
-    public PlayerMovement playerMovement;
+    public GameObject player;
 
-    void Awake()
+    private void Awake()
     {
+        player = GameObject.FindWithTag("Player");
         healthUI = GameObject.Find("HealthUI").GetComponent<HealthUI>();
-        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
+        // Singleton pattern
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     
     public void AddHealth(int value)
@@ -24,16 +36,15 @@ public class HealthManager : MonoBehaviour
         if (healthUI.health <= 0)
         {
             Die();
-            //GameManager.Instance.GameOver();
+            GameManager.Instance.GameOver();
         }
     }
 
     private void Die()
     {
-        GameObject player = GameObject.FindWithTag("Player");
         if (player != null)
         {
-           //Destroy(player);
+           Destroy(player);
         }
         Debug.Log("Player die");
     }

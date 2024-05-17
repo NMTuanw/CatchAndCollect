@@ -19,9 +19,13 @@ public class OptionsUI : MonoBehaviour, IPointerClickHandler
     private Button volumeButton;
     [SerializeField] 
     private Button quitButton;
+    [SerializeField] private VolumeUI volumeUI;
+
     void Awake()
     {
+        volumeUI = GameObject.Find("VolumeUIMenu").GetComponent<VolumeUI>();
         Hide();
+
     }
 
     private void Update()
@@ -36,7 +40,8 @@ public class OptionsUI : MonoBehaviour, IPointerClickHandler
 
         volumeButton.onClick.AddListener(() =>
         {
-            // open volume ui
+            volumeUI.Show();
+            Hide();
         });
 
         quitButton.onClick.AddListener(() =>
@@ -58,12 +63,12 @@ public class OptionsUI : MonoBehaviour, IPointerClickHandler
         Show();
     }
 
-    private void Show(){
+    public void Show(){
         optionsUI.SetActive(true);
         Time.timeScale = 0f;
     }
 
-    private void Hide(){
+    public void Hide(){
         optionsUI.SetActive(false);
         Time.timeScale = 1f;
     }

@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class VolumeUI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject volumeUI;
+
+    void Awake()
     {
-        
+        volumeUI = GameObject.Find("VolumeUI");
+        Hide();
+    }
+    public void Show()
+    {
+        volumeUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Hide()
     {
-        
+        volumeUI.SetActive(false);
+        Time.timeScale = 1f;
+
     }
 }

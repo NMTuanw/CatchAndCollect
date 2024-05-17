@@ -10,20 +10,15 @@ public class GameManager : MonoBehaviour
     public event EventHandler OnGameOptionOpen;
     public event EventHandler OnGameOptionClose;
 
-    [SerializeField] private float countdownToStartTimer = 3f;
-    [SerializeField] private float gameTimer;
-    [SerializeField] private float gameTimerMax = 60f;
+    private GameOverUI gameOverUI;
 
     private bool isGamePaused;
     private void Awake()
     {
         Instance = this;
-    }
-    public void StartGame()
-    {
 
+        gameOverUI = GameObject.Find("GameOverUI").GetComponent<GameOverUI>();
     }
-
     public void PauseGame()
     {
         isGamePaused = !isGamePaused;
@@ -40,6 +35,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        
+        gameOverUI.Show();
     }
 }

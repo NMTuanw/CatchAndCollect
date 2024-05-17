@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // public ItemData referenceItem;
-
-    const string INVENTORYCANVAS = "InventoryCanvas";
+    const string HEALTH_MANAGER = "HealthManager";
     [SerializeField] private float droppingSpeed;
 
     [SerializeField] public string itemName;
@@ -18,12 +17,10 @@ public class Item : MonoBehaviour
     [TextArea]
     [SerializeField] public string itemDescription;
 
-    private InventoryManager inventoryManager;
-
     private HealthManager healthManager;
+
     private void Start() {
-        inventoryManager = GameObject.Find(INVENTORYCANVAS).GetComponent<InventoryManager>(); 
-        healthManager = GameObject.Find("HealthManager").GetComponent<HealthManager>();
+    //    healthManager = GameObject.Find(HEALTH_MANAGER).GetComponent<HealthManager>();
     }
     private void Update() {
         transform.Translate(Vector2.down * droppingSpeed * Time.deltaTime);
@@ -33,19 +30,13 @@ public class Item : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
-            healthManager.RemoveHealth(1);
+            HealthManager.instance.RemoveHealth(1);
             Debug.Log("Prob touched the ground.");
         }
 
         if (other.gameObject.CompareTag("Player"))
         {   
-            int leftOverItems = inventoryManager.AddItem(itemName, itemIcon, quantity, itemDescription);
-            if (leftOverItems <= 0)
-            {
-                Destroy(gameObject);
-            } else {
-                quantity = leftOverItems;
-            }
+            Destroy(gameObject);
             Debug.Log("Prob touched the player.");
         }
     }

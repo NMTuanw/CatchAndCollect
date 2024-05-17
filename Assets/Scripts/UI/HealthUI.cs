@@ -13,6 +13,10 @@ public class HealthUI : MonoBehaviour
     public Sprite fullHearts;
     public Sprite emptyHearts;
 
+    private void Start()
+    {
+        health = numOfHearts;
+    }
     private void Update() {
 
         if (health > numOfHearts)
