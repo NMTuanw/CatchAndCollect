@@ -8,43 +8,14 @@ public class ItemSO : ScriptableObject
 {
     public string itemName;
 
-    public int sellPrice;
+    public float droppingSpeed;
 
-    public StatToChange statToChange = new StatToChange();
-    public int amountToChangeStat;
+    public Sprite itemIcon;
 
-    public bool UseItem()
-    {
-        if (statToChange == StatToChange.sellable)
-        {
-            // PlayerHealth playerHealth = GameObject.Find("HealthManager").GetComponent<PlayerHealth>();
-            // if (playerHealth.health == playerHealth.maxHealth)
-            // {
-            //     return false;
-            // }
-            // else {
-            //     playerHealth.ChangeHealth(amountToChangeStat);
-            //     return true;
-            // }
-            // Debug.Log("Item sell for " + amountToChangeStat);
-        }
-        return false;
-    }
+    public int collectedNumber;
+    public int quantity;
 
-    // public void SellItem()
-    // {
-    //     if (statToChange == StatToChange.sellable)
-    //     {
-    //         GameObject.Find("CoinManager").GetComponent<PlayerCoin>().ChangeCoin(amountToChangeStat);
-    //     }
-    // }
-
-    public enum StatToChange
-    {
-        none,
-        health, 
-        mana,
-        sellable
-    }
+    [TextArea]
+    public string itemDescription;
 }
 

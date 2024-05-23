@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Pumpkin
   m_EditorClassIdentifier: 
   itemName: Pumpkin
-  sellPrice: 20
-  statToChange: 3
-  amountToChangeStat: 20
+  droppingSpeed: 10
+  itemIcon: {fileID: 257915879, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
+  collectedNumber: 0
+  quantity: 0
+  itemDescription: This is a Pumpkin

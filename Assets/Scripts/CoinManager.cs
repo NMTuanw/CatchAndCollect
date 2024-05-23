@@ -19,14 +19,14 @@ public class CoinManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
             LoadCoins();
         }
         else
         {
             Destroy(gameObject);
         }
-
+        LoadCoins();
         UpdateCoinTextUI();
     }
 
@@ -38,12 +38,15 @@ public class CoinManager : MonoBehaviour
     public void AddCoin(int amount)
     {
         coin += amount;
+        SaveCoins();
         UpdateCoinTextUI();
     }
 
     public void RemoveCoin(int amount)
     {
         coin -= amount;
+        SaveCoins();
+        UpdateCoinTextUI();
     }
 
     public void SpendCoins(int amount)
@@ -51,6 +54,7 @@ public class CoinManager : MonoBehaviour
         if (coin >= amount)
         {
             coin -= amount;
+            SaveCoins();
             UpdateCoinTextUI();
         }
         else
@@ -63,7 +67,7 @@ public class CoinManager : MonoBehaviour
     {
         if (coinText != null)
         {
-            coinText.text = "X " + coin;
+            coinText.text = "" + coin;
         }
     }
 

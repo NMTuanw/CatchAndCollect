@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed;
+    public CharacterStats characterStats;
 
     private Rigidbody2D rb2D;
     private Animator animator;
@@ -14,6 +14,7 @@ public class Move : MonoBehaviour
     private void Start() {
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+        characterStats = GetComponent<CharacterStats>();
     }
 
     private void Update() {
@@ -24,7 +25,7 @@ public class Move : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         Vector2 moveDirection = new Vector2(horizontal, 0) ;
-        rb2D.velocity = new Vector2(moveDirection.x *  moveSpeed, rb2D.velocity.y);
+        rb2D.velocity = new Vector2(moveDirection.x *  characterStats.moveSpeed, rb2D.velocity.y);
         isWalking = moveDirection != Vector2.zero;
 
         animator.SetBool("IsWalking", isWalking);

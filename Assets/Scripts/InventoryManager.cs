@@ -50,8 +50,8 @@ public class InventoryManager : MonoBehaviour
         {
             if (itemSOs[i].itemName == itemName)
             {
-                bool usable = itemSOs[i].UseItem();
-                return usable;
+                //bool usable = itemSOs[i].UseItem();
+                //return usable;
             }
         }   
         return false;

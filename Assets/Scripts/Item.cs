@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    const string HEALTH_MANAGER = "HealthManager";
     [SerializeField] private float droppingSpeed;
 
     [SerializeField] public string itemName;
@@ -17,11 +16,7 @@ public class Item : MonoBehaviour
     [TextArea]
     [SerializeField] public string itemDescription;
 
-    private HealthManager healthManager;
-
-    private void Start() {
-    //    healthManager = GameObject.Find(HEALTH_MANAGER).GetComponent<HealthManager>();
-    }
+    public ItemSO itemSO;
     private void Update() {
         transform.Translate(Vector2.down * droppingSpeed * Time.deltaTime);
     }
@@ -37,6 +32,7 @@ public class Item : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {   
             Destroy(gameObject);
+            itemSO.collectedNumber += 1;
             Debug.Log("Prob touched the player.");
         }
     }
