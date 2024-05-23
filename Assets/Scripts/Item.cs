@@ -1,51 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // public ItemData referenceItem;
+    public ItemSO itemSO;
 
-    const string INVENTORYCANVAS = "InventoryCanvas";
-    [SerializeField] private float droppingSpeed;
-
-    [SerializeField] public string itemName;
-
-    [SerializeField] public Sprite itemIcon;
-
-    [SerializeField] public int quantity;
-
-    [TextArea]
-    [SerializeField] public string itemDescription;
-
-    private InventoryManager inventoryManager;
-
-    private HealthManager healthManager;
-    private void Start() {
-        inventoryManager = GameObject.Find(INVENTORYCANVAS).GetComponent<InventoryManager>(); 
-        healthManager = GameObject.Find("HealthManager").GetComponent<HealthManager>();
+    public Attack attack;
+    void Awake()
+    {
+        attack = GameObject.Find("Player").GetComponent<Attack>();
     }
+    
     private void Update() {
-        transform.Translate(Vector2.down * droppingSpeed * Time.deltaTime);
+        transform.Translate(Vector2.down * itemSO.droppingSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
-            healthManager.RemoveHealth(1);
+            //HealthManager.instance.RemoveHealth(1);
             Debug.Log("Prob touched the ground.");
         }
 
         if (other.gameObject.CompareTag("Player"))
         {   
-            int leftOverItems = inventoryManager.AddItem(itemName, itemIcon, quantity, itemDescription);
-            if (leftOverItems <= 0)
-            {
-                Destroy(gameObject);
-            } else {
-                quantity = leftOverItems;
-            }
+            Destroy(gameObject);
+            itemSO.collectedNumber += 1;
+            attack.currentEnergy += itemSO.energyWhenCollect;
             Debug.Log("Prob touched the player.");
         }
     }
