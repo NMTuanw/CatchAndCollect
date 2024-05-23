@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0f76e60f54bd724fa9e6fb3bdc0dfb9, type: 3}
-  m_Name: PlayerInventory
+  m_Script: {fileID: 11500000, guid: 284e623f77dc6934fb186fb224faac73, type: 3}
+  m_Name: SuperDuck
   m_EditorClassIdentifier: 
-  maxItems: 0
-  items: []
+  bossName: Super Duck
+  bossIcon: {fileID: 21300000, guid: b6d281e4b3923a84ea8ddd9b444a757f, type: 3}
+  bossHealth: 200
+  numberBoss: 0
+  itemDescription: 

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Pumpkin
   m_EditorClassIdentifier: 
   itemName: Pumpkin
-  droppingSpeed: 10
+  droppingSpeed: 20
+  energyWhenCollect: 2
   itemIcon: {fileID: 257915879, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
-  collectedNumber: 0
+  collectedNumber: 7
   quantity: 0
   itemDescription: This is a Pumpkin
