@@ -196,12 +196,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: b6d281e4b3923a84ea8ddd9b444a757f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc209da251f0b064e90606c3e2429883, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.12, y: 5.12}
+  m_Size: {x: 0.36, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1840,7 +1840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossName_Text: {fileID: 781622724}
   bossHealth_Text: {fileID: 160578022}
-  bossSO: {fileID: 11400000, guid: 37fad48831ef1ec45bb83c56e8aefa38, type: 2}
+  bossSO: {fileID: 11400000, guid: f3c3ca3343108f84f9e7597796c116c5, type: 2}
 --- !u!1 &1430967959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,7 +2360,7 @@ Transform:
   m_GameObject: {fileID: 1712214143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4, y: -32.932888, z: -0.43715066}
+  m_LocalPosition: {x: 0.5, y: -32.932888, z: -0.43715066}
   m_LocalScale: {x: 90, y: 90, z: 90}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2379,6 +2379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93786a3398b244f4486a58045fc97601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossSO: {fileID: 11400000, guid: f3c3ca3343108f84f9e7597796c116c5, type: 2}
+  spriteRenderer: {fileID: 0}
 --- !u!1 &1781682279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,7 +2518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boss: {fileID: 0}
-  bossSO: {fileID: 11400000, guid: 37fad48831ef1ec45bb83c56e8aefa38, type: 2}
+  bossSO: {fileID: 11400000, guid: f3c3ca3343108f84f9e7597796c116c5, type: 2}
   health: 0
 --- !u!1 &1800867814
 GameObject:

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SuperDuck
   m_EditorClassIdentifier: 
   bossName: Super Duck
-  bossIcon: {fileID: 21300000, guid: b6d281e4b3923a84ea8ddd9b444a757f, type: 3}
+  bossSprite: {fileID: 21300000, guid: b6d281e4b3923a84ea8ddd9b444a757f, type: 3}
   bossHealth: 200
   numberBoss: 0
   itemDescription: 

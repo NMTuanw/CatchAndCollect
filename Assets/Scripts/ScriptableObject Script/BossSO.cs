@@ -7,7 +7,7 @@ public class BossSO : ScriptableObject
 {
     public string bossName;
 
-    public Sprite bossIcon;
+    public Sprite bossSprite;
 
     public int bossHealth;
     public int numberBoss;

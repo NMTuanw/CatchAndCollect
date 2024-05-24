@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class BookUI : MonoBehaviour
 {
+    [Header("UI Text")]
     public TextMeshProUGUI pumpkinCollected;
 
+    [Header("UI Button")]
+
+    [Header("Reference Script")]
     public ItemSO itemSO;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         pumpkinCollected.text = itemSO.collectedNumber.ToString();
     }
