@@ -13,6 +13,7 @@ public class ItemSO : ScriptableObject
 
     public int energyWhenCollect;
 
+    public Color itemColor;
     public Sprite itemIcon;
 
     [Header("Collected (read-only)")]

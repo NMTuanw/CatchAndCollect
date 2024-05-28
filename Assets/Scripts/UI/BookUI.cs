@@ -5,20 +5,13 @@ using UnityEngine;
 
 public class BookUI : MonoBehaviour
 {
-    [Header("UI Text")]
-    public TextMeshProUGUI pumpkinCollected;
-
-    [Header("UI Button")]
-
-    [Header("Reference Script")]
-    public ItemSO itemSO;
-    private void Start()
+    public void ShowBookUI()
     {
-        
+        gameObject.SetActive(true);
     }
 
-    private void Update()
+    public void HideBookUI()
     {
-        pumpkinCollected.text = itemSO.collectedNumber.ToString();
+        gameObject.SetActive(false);
     }
 }

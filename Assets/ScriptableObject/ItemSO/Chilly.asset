@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b6797e8ba5df204abc51bf5ce128dcb, type: 3}
-  m_Name: Pumpkin
+  m_Name: Chilly
   m_EditorClassIdentifier: 
-  itemName: Pumpkin
-  droppingSpeed: 20
-  energyWhenCollect: 2
-  itemColor: {r: 1, g: 0.8, b: 0.34509805, a: 1}
-  itemIcon: {fileID: 257915879, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
-  collectedNumber: 7
+  itemName: Chilly
+  droppingSpeed: 10
+  energyWhenCollect: 1
+  itemColor: {r: 0.3002847, g: 0.846024, b: 0.90943396, a: 1}
+  itemIcon: {fileID: -1630692282, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
+  collectedNumber: 0
   quantity: 0
-  itemDescription: This is a Pumpkin
+  itemDescription: Chilly chilly jalapeno
