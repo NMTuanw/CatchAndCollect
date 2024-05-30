@@ -15,12 +15,9 @@ public class CharacterStats : MonoBehaviour
     [Header("Stats")]
     public int health;
     public int moveSpeed;
-
     public int dashSpeed;
     public float dashDuration;
     public float dashCooldown;
-
-    public CharacterStats() { }
 
     public void IncreaseHealth(int amount)
     {
