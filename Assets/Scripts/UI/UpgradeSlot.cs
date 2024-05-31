@@ -29,8 +29,13 @@ public class UpgradeSlot : MonoBehaviour
     {
         upgradeName.text = upgradeSO.upgradeName;
         upgradeImage.sprite = upgradeSO.upgradeIcon;
-        upgradeLevel.text = "LV. " + upgradeSO.upgradeLevel.ToString();
         upgradeDescription.text = upgradeSO.upgradeDescription;
         upgradePrice.text = upgradeSO.upgradePrice.ToString();
+        
+        upgradeLevel.text = "LV. " + upgradeSO.upgradeLevel.ToString() + " / " + upgradeSO.upgradeLevelCap;
+        if (upgradeSO.upgradeLevel == upgradeSO.upgradeLevelCap)
+        {
+            upgradeLevel.text = "LV. MAX";
+        }
     }
 }

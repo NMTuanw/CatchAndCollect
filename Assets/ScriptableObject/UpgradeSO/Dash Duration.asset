@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Dash Duration
   upgradeIcon: {fileID: 21300000, guid: 6ef4568b43e864745ac4188b1e675e36, type: 3}
-  upgradeLevel: 3
+  upgradeLevel: 1
   upgradePrice: 250
+  upgradeLevelCap: 3
   upgradeDescription: Increase Dash Duration

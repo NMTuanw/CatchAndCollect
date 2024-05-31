@@ -12,6 +12,7 @@ public class UpgradeSO : ScriptableObject
     [Header("read-only")]
     public int upgradeLevel;
     public int upgradePrice;
+    public int upgradeLevelCap;
 
     [TextArea]
     public string upgradeDescription;
