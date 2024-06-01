@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "ItemSO")]
+[CreateAssetMenu(menuName = "Item SO")]
 public class ItemSO : ScriptableObject 
 {
     [Header("Item Stats (changeable)")]

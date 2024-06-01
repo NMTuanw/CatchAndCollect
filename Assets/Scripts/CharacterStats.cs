@@ -44,6 +44,10 @@ public class CharacterStats : MonoBehaviour
         dashCooldown -= amount;
     }
 
+    void Start()
+    {
+        LoadStats();
+    }
 
     public void SaveStats()
     {

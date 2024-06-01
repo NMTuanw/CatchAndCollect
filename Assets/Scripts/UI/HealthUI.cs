@@ -1,45 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    public CharacterStats characterStats;
-    public int numOfHearts;
+    [Header("UI")]
+    public TextMeshProUGUI healthText;
+    public Image healthImage;
 
-    public Image[] hearts;
-    public Sprite fullHearts;
-    public Sprite emptyHearts;
+    [Header("Reference Script")]
+    public CharacterStats characterStats;
+    public SpriteRenderer spriteRenderer;
+
 
     private void Start()
     {
-        numOfHearts = characterStats.health;
+        characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
+        spriteRenderer = GameObject.Find("Player").GetComponentInChildren<SpriteRenderer>();
     }
-    private void Update() {
 
-        if (characterStats.health > numOfHearts)
+    private void Update()
+    {
+        UpdateUI();
+
+        // Tìm lại player trong trường hợp bị mất tham chiếu
+        FindPlayerReferences();
+    }
+
+    private void UpdateUI()
+    {
+        healthText.text = "" + HealthManager.instance.health;
+        if (spriteRenderer != null)
         {
-            numOfHearts = characterStats.health;
-        }
-
-        for (int i = 0; i < hearts.Length; i++)
-        {
-            if (i < characterStats.health)
-            {
-                hearts[i].sprite = fullHearts;
-            } else {
-                hearts[i].sprite = emptyHearts;
-            }
-
-            if (i < numOfHearts)
-            {
-                hearts[i].enabled = true;
-            } else {
-                hearts[i].enabled = false;
-            }
+            healthImage.sprite = spriteRenderer.sprite;
         }
     }
-    
+
+    private void FindPlayerReferences()
+    {
+        GameObject player = GameObject.Find("Player");
+        if (player != null)
+        {
+            spriteRenderer = player.GetComponentInChildren<SpriteRenderer>();
+        }
+    }
 }

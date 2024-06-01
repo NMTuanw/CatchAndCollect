@@ -24,6 +24,15 @@ public class UpgradeSystem : MonoBehaviour
     public float dashDurationValue;
     public float dashCooldownValue;
 
+    private void Awake()
+    {
+        characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
+        characterStats.LoadStats();
+
+        LoadUpgradeLevels();
+    }
+    
+    
     private void ApplyUpgrade(UpgradeSO upgradeSO)
     {
         switch (upgradeSO.upgradeName)
@@ -46,8 +55,10 @@ public class UpgradeSystem : MonoBehaviour
             default:
                 Debug.LogWarning("Unknown upgrade type: " + upgradeSO.upgradeName);
                 break;
+            
         }
-
+        
+        SaveUpgradeLevels();
         characterStats.SaveStats();
     }
 
@@ -115,6 +126,7 @@ public class UpgradeSystem : MonoBehaviour
         DashSpeed.upgradeLevel = 1;
         DashDuration.upgradeLevel = 1;
         DashCooldown.upgradeLevel = 1;
+        SaveUpgradeLevels();
     }
 
     private void OnDisable()
@@ -122,9 +134,22 @@ public class UpgradeSystem : MonoBehaviour
         characterStats.SaveStats();
     }
 
-    private void Awake()
+    private void SaveUpgradeLevels()
     {
-        characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
-        characterStats.LoadStats();
+        PlayerPrefs.SetInt(Health.upgradeName + "Level", Health.upgradeLevel);
+        PlayerPrefs.SetInt(MoveSpeed.upgradeName + "Level", MoveSpeed.upgradeLevel);
+        PlayerPrefs.SetInt(DashSpeed.upgradeName + "Level", DashSpeed.upgradeLevel);
+        PlayerPrefs.SetInt(DashDuration.upgradeName + "Level", DashDuration.upgradeLevel);
+        PlayerPrefs.SetInt(DashCooldown.upgradeName + "Level", DashCooldown.upgradeLevel);
+        PlayerPrefs.Save();
+    }
+    
+    private void LoadUpgradeLevels()
+    {
+        Health.upgradeLevel = PlayerPrefs.GetInt(Health.upgradeName + "Level", 1);
+        MoveSpeed.upgradeLevel = PlayerPrefs.GetInt(MoveSpeed.upgradeName + "Level", 1);
+        DashSpeed.upgradeLevel = PlayerPrefs.GetInt(DashSpeed.upgradeName + "Level", 1);
+        DashDuration.upgradeLevel = PlayerPrefs.GetInt(DashDuration.upgradeName + "Level", 1);
+        DashCooldown.upgradeLevel = PlayerPrefs.GetInt(DashCooldown.upgradeName + "Level", 1);
     }
 }

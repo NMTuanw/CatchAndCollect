@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "UpgradeSO")]
+[CreateAssetMenu(menuName = "Upgrade SO")]
 public class UpgradeSO : ScriptableObject
 {
     [Header("Item Stats (can change)")]
