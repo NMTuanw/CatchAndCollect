@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 8574974771767193663}
   - component: {fileID: 7084391939916564430}
   m_Layer: 5
-  m_Name: ShopSlot
+  m_Name: SkinSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1276,6 +1276,8 @@ MonoBehaviour:
   skinImage: {fileID: 1765153389487014499}
   skinPrice: {fileID: 1401463666602869843}
   skinDescription: {fileID: 5508265018225221759}
-  shopButton: {fileID: 2387260561349627129}
-  ownedButton: {fileID: 5212693882113541346}
+  skinButtonUI: {fileID: 0}
   skinButton: {fileID: 1550851236379325414}
+  ownedButtonUI: {fileID: 0}
+  ownedButton: {fileID: 7100908785691742816}
+  ownedButtonText: {fileID: 0}

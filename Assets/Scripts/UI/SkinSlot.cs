@@ -4,21 +4,27 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopSlot : MonoBehaviour
+public class SkinSlot : MonoBehaviour
 {
     [Header("Reference")]
     public SkinSO skinSO;
 
-    [Header("Shop UI")]
+    [Header("Skin Slot UI")]
     public TextMeshProUGUI skinName;
     public Image skinImage;
     public TextMeshProUGUI skinPrice;
     public TextMeshProUGUI skinDescription;
 
-    public GameObject shopButtonUI;
-    public GameObject ownedButtonUI;
+    [Header("Skin Button UI")]
+    public GameObject skinButtonUI;
     public Button skinButton;
+
+    
+    [Header("Owned Button UI")]
+    public GameObject ownedButtonUI;
     public Button ownedButton;
+
+    public TextMeshProUGUI ownedButtonText;
     void Start()
     {
         skinButton.onClick.AddListener(() => OnSkinButtonClick());
@@ -26,10 +32,10 @@ public class ShopSlot : MonoBehaviour
     }
     private void Update()
     {
-        UpdateShopSlotUI();
+        UpdateSkinSlotUI();
     }
 
-    private void UpdateShopSlotUI()
+    private void UpdateSkinSlotUI()
     {
         skinName.text = skinSO.skinName;
         skinImage.sprite = skinSO.skinSprite;
@@ -38,10 +44,10 @@ public class ShopSlot : MonoBehaviour
         
         if (skinSO.isUnlock)
         {
-            shopButtonUI.SetActive(false);
+            skinButtonUI.SetActive(false);
             ownedButtonUI.SetActive(true);
         } else {
-            shopButtonUI.SetActive(true);
+            skinButtonUI.SetActive(true);
             ownedButtonUI.SetActive(false);           
         }
     }
@@ -52,9 +58,9 @@ public class ShopSlot : MonoBehaviour
         {
             PurchaseSkin(skinSO);
         }
-        else
-        {
-            ChangeSkin(skinSO);
+        else {
+            Debug.Log("Skin is Unlocked");
+            return;
         }
     }
 
@@ -65,11 +71,5 @@ public class ShopSlot : MonoBehaviour
             CoinManager.instance.RemoveCoin(skinToPurchase.skinPrice);
             skinToPurchase.isUnlock = true;
         }
-    }
-
-    private void ChangeSkin(SkinSO newSkin)
-    {
-        SkinManager.instance.ChangeSkin(newSkin);
-        Debug.Log("Skin changed to: " + newSkin.skinName);
     }
 }

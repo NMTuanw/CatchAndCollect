@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93dd7e35709085d449eb5047040dd97f, type: 3}
-  m_Name: Captain A
+  m_Name: Cat Hero
   m_EditorClassIdentifier: 
-  skinName: Captain A
-  skinSprite: {fileID: 21300000, guid: f7e5838706b25234aa386c21a21ebd0a, type: 3}
-  skinPrice: 50
+  skinName: Cat Hero 6
+  skinSprite: {fileID: 21300000, guid: 013d27faa0de6514c81874e3ef05a846, type: 3}
+  skinPrice: 10
   isUnlock: 1
-  isSelect: 0
-  skinDescription: Captain A
+  isSelect: 1
+  skinDescription: Knight Yellow

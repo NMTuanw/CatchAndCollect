@@ -3,60 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SkinManager : MonoBehaviour
-{
+{   
     public static SkinManager instance;
-
-    public SkinSO currentSkin;
-    public SkinSO[] availableSkins; // Danh sách các skin có sẵn trong shop
-
+    public SkinSO[] skinSOArray;
     public SpriteRenderer playerSpriteRenderer;
+
+    //private const string SelectedSkinKey = "SelectedSkin";
 
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            //DontDestroyOnLoad(gameObject); // Giữ đối tượng này khi chuyển đổi cảnh
-            FindPlayerSpriteRenderer();
         }
         else
         {
             Destroy(gameObject);
         }
 
+        GameObject player = GameObject.FindWithTag("Player");
+        playerSpriteRenderer = player.GetComponentInChildren<SpriteRenderer>();
     }
 
-    private void FindPlayerSpriteRenderer(){
-        GameObject player = GameObject.FindWithTag("Player"); // Tìm đối tượng người chơi bằng tag
-        if (player != null)
+    public void ChangeSkin(SkinSO skinSO)
+    {
+        if (!skinSO.isUnlock)
         {
-            playerSpriteRenderer = player.GetComponentInChildren<SpriteRenderer>(); // Lấy thành phần SpriteRenderer từ đối tượng người chơi
-            if (playerSpriteRenderer == null)
+            Debug.LogError("Skin is not unlocked");
+            return;
+        }
+
+        playerSpriteRenderer.sprite = skinSO.skinSprite;
+        skinSO.isSelect = true;
+
+        foreach (var skin in skinSOArray)
+        {
+            if (skin != skinSO)
             {
-                currentSkin.skinSprite = playerSpriteRenderer.sprite;
-                Debug.LogError("SpriteRenderer not found on Player object!");
+                skin.isSelect = false;
             }
         }
-    }
-    public void ChangeSkin(SkinSO newSkin)
-    {
-        playerSpriteRenderer.sprite = newSkin.skinSprite;
-        currentSkin = newSkin;
+
+        PlayerPrefs.SetString("SelectedSkin", skinSO.skinName);
     }
 
-    public bool PurchaseSkin(SkinSO skinToPurchase)
+    public Sprite GetSavedSkin()
     {
-        if (CoinManager.instance.coin >= skinToPurchase.skinPrice)
+        string spriteName = PlayerPrefs.GetString("SelectedSkin");
+        foreach (var skinSO in skinSOArray)
         {
-            CoinManager.instance.RemoveCoin(skinToPurchase.skinPrice);
-            skinToPurchase.isUnlock = true;
-            // Lưu trạng thái của skin, nếu cần
-            return true;
+            if (skinSO.skinName == spriteName)
+            {
+                return skinSO.skinSprite;
+            }
         }
-        else
-        {
-            Debug.Log("Not enough coins to purchase the skin!");
-            return false;
-        }
+        return null;
     }
 }

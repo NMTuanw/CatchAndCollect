@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93dd7e35709085d449eb5047040dd97f, type: 3}
-  m_Name: Captain A
+  m_Name: CatzMouse
   m_EditorClassIdentifier: 
-  skinName: Captain A
-  skinSprite: {fileID: 21300000, guid: f7e5838706b25234aa386c21a21ebd0a, type: 3}
-  skinPrice: 50
+  skinName: Catz_Mouse
+  skinSprite: {fileID: 21300000, guid: 526b08f611a48234ba6d9a74f4030845, type: 3}
+  skinPrice: 300
   isUnlock: 1
-  isSelect: 0
-  skinDescription: Captain A
+  isSelect: 1
+  skinDescription: CatzMouse

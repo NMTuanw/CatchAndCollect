@@ -11,6 +11,7 @@ public class SkinSO : ScriptableObject
     public int skinPrice;
 
     public bool isUnlock;
+    public bool isSelect;
     [TextArea]
     public string skinDescription;
     
