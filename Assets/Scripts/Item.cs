@@ -6,12 +6,6 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public ItemSO itemSO;
-
-    public Attack attack;
-    void Awake()
-    {
-        attack = GameObject.Find("Player").GetComponent<Attack>();
-    }
     
     private void Update() {
         transform.Translate(Vector2.down * itemSO.droppingSpeed * Time.deltaTime);
@@ -21,7 +15,6 @@ public class Item : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
-            //HealthManager.instance.RemoveHealth(1);
             Debug.Log("Prob touched the ground.");
         }
 
@@ -29,7 +22,6 @@ public class Item : MonoBehaviour
         {   
             Destroy(gameObject);
             itemSO.collectedNumber += 1;
-            attack.currentEnergy += itemSO.energyWhenCollect;
             Debug.Log("Prob touched the player.");
         }
     }

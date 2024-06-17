@@ -34,10 +34,6 @@ public class UpgradeManager : MonoBehaviour
         dashCooldownButton.onClick.AddListener(upgradeSystem.UpgradeDashCooldown);
 
         resetButton.onClick.AddListener(upgradeSystem.ResetCharacterStats);
-
-        loadGameSceneButton.onClick.AddListener(() => {
-            LoadGameScene("GameScene2");
-        });
     }
 
     private void LoadGameScene(string scene)

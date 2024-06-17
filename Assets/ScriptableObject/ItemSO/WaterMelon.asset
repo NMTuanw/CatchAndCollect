@@ -17,6 +17,6 @@ MonoBehaviour:
   energyWhenCollect: 2
   itemColor: {r: 0.43777084, g: 0.9245283, b: 0.15176214, a: 1}
   itemIcon: {fileID: 2080226710, guid: 54894ea1791b0564fa502e9e61bdb3c6, type: 3}
-  collectedNumber: 89
+  collectedNumber: 0
   quantity: 0
   itemDescription: This is a WaterMelon

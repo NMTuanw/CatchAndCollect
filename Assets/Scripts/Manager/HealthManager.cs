@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class HealthManager : MonoBehaviour
     public GameObject player;
 
     public int health;
+    public Image healthBar;
 
     private void Awake()
     {
@@ -24,13 +26,24 @@ public class HealthManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        health = characterStats.health;
     }
-    
+    void Start()
+    {
+        health = characterStats.health;
+        UpdateHealthBar();
+    }
+    private void UpdateHealthBar()
+    {
+        if (healthBar != null)
+        {
+            healthBar.fillAmount =  (float)health / (float)characterStats.health;
+        }
+    }
+
     public void AddHealth(int value)
     {
         health += value;
+        UpdateHealthBar();
     }
 
     public void RemoveHealth(int value)
@@ -41,6 +54,7 @@ public class HealthManager : MonoBehaviour
             health = 0;
             Die();
         } 
+        UpdateHealthBar();
     }
 
     private void Die()

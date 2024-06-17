@@ -11,6 +11,8 @@ public class HealthUI : MonoBehaviour
     public TextMeshProUGUI healthText;
     public Image healthImage;
 
+    public Image healthBar;
+
     [Header("Reference Script")]
     public CharacterStats characterStats;
     public SpriteRenderer spriteRenderer;
@@ -20,13 +22,14 @@ public class HealthUI : MonoBehaviour
     {
         characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
         spriteRenderer = GameObject.Find("Player").GetComponentInChildren<SpriteRenderer>();
+
+        UpdateHealthBar();
     }
 
     private void Update()
     {
         UpdateUI();
 
-        // Tìm lại player trong trường hợp bị mất tham chiếu
         FindPlayerReferences();
     }
 
@@ -45,6 +48,13 @@ public class HealthUI : MonoBehaviour
         if (player != null)
         {
             spriteRenderer = player.GetComponentInChildren<SpriteRenderer>();
+        }
+    }
+
+    private void UpdateHealthBar(){
+        if (healthBar != null)
+        {
+            healthBar.fillAmount = (float)characterStats.health / HealthManager.instance.health;
         }
     }
 }

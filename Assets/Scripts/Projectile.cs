@@ -14,11 +14,11 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Boss"))
+        if (other.gameObject.CompareTag("Obstacle"))
         {   
             Destroy(gameObject);
-            BossHealthManager.instance.RemoveHealth(projectileDamage);
-            Debug.Log("Prob touched the Boss.");
+            Destroy(other.gameObject);
+            Debug.Log("Prob touched the Obstacle.");
         }
     }
 }
