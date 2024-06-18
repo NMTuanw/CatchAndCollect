@@ -5,6 +5,7 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public ItemSO itemSO;
+    [SerializeField] private int obstacleDamage;
 
     private void Update() {
         transform.Translate(Vector2.down * itemSO.droppingSpeed * Time.deltaTime);
@@ -21,7 +22,7 @@ public class Obstacle : MonoBehaviour
         {   
             Destroy(gameObject);
             itemSO.collectedNumber += 1;
-            HealthManager.instance.RemoveHealth(5);
+            HealthManager.instance.RemoveHealth(obstacleDamage);
             Debug.Log("Obstacle touched the player.");
         }
     }

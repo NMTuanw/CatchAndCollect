@@ -2138,9 +2138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   probPrefab:
-  - {fileID: 2478528115376596334, guid: 33c7e1ffd79167d4faa065ea55b7f583, type: 3}
-  - {fileID: 2478528115376596334, guid: 4147df165b95a57428c523d7991a8406, type: 3}
-  - {fileID: 2478528115376596334, guid: ce366c7f1e37dc54cabfbab7fed1ca1b, type: 3}
+  - {fileID: 2478528115376596334, guid: 22689d2956092414b85b56024bf6c1e1, type: 3}
+  - {fileID: 2478528115376596334, guid: 2824c02f0ab089748ae771f5153e30cf, type: 3}
+  - {fileID: 2478528115376596334, guid: 83179a76681b16c4db40f1608ef60e37, type: 3}
   probSpawnTime: 0.5
   minSpawnPositionX: -10
   maxSpawnPositionX: 10
@@ -2170,6 +2170,22 @@ PrefabInstance:
     - target: {fileID: 1228721638314965478, guid: 612aaea73639fd44b9b2c9bb194f24e5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921677885313212395, guid: 612aaea73639fd44b9b2c9bb194f24e5, type: 3}
+      propertyPath: m_Size.x
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921677885313212395, guid: 612aaea73639fd44b9b2c9bb194f24e5, type: 3}
+      propertyPath: m_Size.y
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3921677885313212395, guid: 612aaea73639fd44b9b2c9bb194f24e5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f7e5838706b25234aa386c21a21ebd0a, type: 3}
+    - target: {fileID: 3921677885313212395, guid: 612aaea73639fd44b9b2c9bb194f24e5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5750066636523891685, guid: 612aaea73639fd44b9b2c9bb194f24e5, type: 3}
       propertyPath: m_LocalPosition.x

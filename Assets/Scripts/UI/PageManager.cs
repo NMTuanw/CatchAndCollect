@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PageManager : MonoBehaviour
 {
     [Header("Reference")]
-    public GameObject[] fruitSlotPages;
+    public GameObject[] slotPages;
 
     [Header("SwitchPage UI")]
     public Button backPageButton;
@@ -34,23 +34,23 @@ public class PageManager : MonoBehaviour
 
     private void UpdatePage()
     {
-        for (int i = 0; i < fruitSlotPages.Length; i++)
+        for (int i = 0; i < slotPages.Length; i++)
         {
-            fruitSlotPages[i].SetActive(false);
+            slotPages[i].SetActive(false);
         }
 
-        if (currentPageIndex >= 0 && currentPageIndex < fruitSlotPages.Length)
+        if (currentPageIndex >= 0 && currentPageIndex < slotPages.Length)
         {
-            fruitSlotPages[currentPageIndex].SetActive(true);
+            slotPages[currentPageIndex].SetActive(true);
         }
 
         backPageButton.interactable = currentPageIndex > 0;
-        nextPageButton.interactable = currentPageIndex < fruitSlotPages.Length - 1;
+        nextPageButton.interactable = currentPageIndex < slotPages.Length - 1;
     }
 
     private void OnNextPage()
     {
-        if (currentPageIndex < fruitSlotPages.Length - 1)
+        if (currentPageIndex < slotPages.Length - 1)
         {
             currentPageIndex++;
             UpdatePage();
@@ -68,6 +68,6 @@ public class PageManager : MonoBehaviour
 
     private void UpdatePageNumber()
     {
-        pageNumberText.text = (currentPageIndex + 1) + "/" + fruitSlotPages.Length;
+        pageNumberText.text = (currentPageIndex + 1) + "/" + slotPages.Length;
     }
 }

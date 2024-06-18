@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    [SerializeField] private int coinValue;
     [SerializeField] private float droppingSpeed;
 
     private void Update() {
@@ -14,7 +15,7 @@ public class Coin : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {   
             Destroy(gameObject);
-            CoinManager.instance.AddCoin(1);
+            CoinManager.instance.AddCoin(coinValue);
             Debug.Log("Prob touched the player.");
         }
     }
