@@ -11,7 +11,7 @@ public class ItemSO : ScriptableObject
 
     public float droppingSpeed;
 
-    public int energyWhenCollect;
+    public int gameScore;
 
     public Color itemColor;
     public Sprite itemIcon;

@@ -15,7 +15,9 @@ public class GameStartCoundownUI : MonoBehaviour
     private void Start()
     {
         StartCoroutine(StartCountdown());
+        Show();
     }
+
     IEnumerator StartCountdown()
     {
         timerCountdownToStartText.text = timerCountdownToStart.ToString();

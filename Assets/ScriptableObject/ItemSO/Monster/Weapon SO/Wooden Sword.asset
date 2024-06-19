@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Wooden Sword
   droppingSpeed: 10
-  energyWhenCollect: 0
+  gameScore: 5
   itemColor: {r: 1, g: 1, b: 1, a: 1}
   itemIcon: {fileID: -267587109, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
-  collectedNumber: 0
+  collectedNumber: 4
   quantity: 0
   itemDescription: 

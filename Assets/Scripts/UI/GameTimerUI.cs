@@ -9,13 +9,11 @@ public class GameTimerUI : MonoBehaviour
 {
     public float countDownTime; // float thi moi dung Time.deltatime duoc
     public TextMeshProUGUI timerText;
-    public Image fill;
-    public float maxTime;
     private bool gameStarted;
     
     private void Awake()
     {
-        GameStartCoundownUI.GameStartCountdownFinished += GameStartCoundownUI_GameStartCountdownFinished; ;
+        GameStartCoundownUI.GameStartCountdownFinished += GameStartCoundownUI_GameStartCountdownFinished;
     }
 
     private void GameStartCoundownUI_GameStartCountdownFinished()
@@ -35,7 +33,6 @@ public class GameTimerUI : MonoBehaviour
     {
         countDownTime -= Time.deltaTime;
         timerText.text =  "" + (int)countDownTime;
-        fill.fillAmount = countDownTime / maxTime;
 
         if (countDownTime < 0)
         {

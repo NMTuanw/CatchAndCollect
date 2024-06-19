@@ -12,6 +12,11 @@ public class PlayerSpriteRenderer : MonoBehaviour
     }
     void Start()
     {
+        //LoadSkin();
+    }
+
+    private void LoadSkin()
+    {
         Sprite savedSkin = SkinManager.instance.GetSavedSkin();
         if (savedSkin != null)
         {

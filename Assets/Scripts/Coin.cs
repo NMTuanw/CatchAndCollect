@@ -12,6 +12,12 @@ public class Coin : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Ground"))
+        {   
+            Destroy(gameObject);
+            Debug.Log("Prob touched the ground.");
+        }
+        
         if (other.gameObject.CompareTag("Player"))
         {   
             Destroy(gameObject);

@@ -22,6 +22,7 @@ public class Item : MonoBehaviour
         {   
             Destroy(gameObject);
             itemSO.collectedNumber += 1;
+            ScoreManager.instance.AddScore(itemSO.gameScore);
             Debug.Log("Prob touched the player.");
         }
     }
