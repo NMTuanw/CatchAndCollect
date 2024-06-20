@@ -12,7 +12,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
     }
     void Start()
     {
-        //LoadSkin();
+        LoadSkin();
     }
 
     private void LoadSkin()

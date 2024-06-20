@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class PlayerUI : MonoBehaviour
+public class ShowAndHideGameObject : MonoBehaviour
 {
-    public void Show_PlayerUI()
+    public void ShowGameObject(GameObject gameObject)
     {
         gameObject.SetActive(true);
     }
 
-    public void Hide_PlayerUI()
+    public void HideGameObject(GameObject gameObject)
     {
         gameObject.SetActive(false);
     }
