@@ -2,20 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class LevelCompleteScript : MonoBehaviour
 {
     public LevelSO levelSO;
+
     public void OnLevelComplete()
     {
         ScoreManager.instance.CheckScoreAndSaveStars(levelSO);
 
-        if(LevelSelectManager2.currLevel == LevelSelectManager2.unlockedLevels)
+        SaveHighScore();
+        UnlockNextLevel();
+    }
+
+    private void SaveHighScore()
+    {
+        if (ScoreManager.instance.score > levelSO.highScore)
         {
-            LevelSelectManager2.unlockedLevels++;
-            PlayerPrefs.SetInt("unlockedLevels", LevelSelectManager2.unlockedLevels);
-            PlayerPrefs.Save();
+            levelSO.highScore = ScoreManager.instance.score;
         }
-        SceneManager.LoadScene("LevelSelect Test");
+    }
+
+    private void UnlockNextLevel()
+    {
+        if(levelSO.levelStars >= 2) 
+        {
+            int unlockedLevels = LevelSelectManager.unlockedLevels;
+
+            if(levelSO.levelIndex == unlockedLevels)
+            {
+                unlockedLevels++; 
+                PlayerPrefs.SetInt("unlockedLevels", unlockedLevels);
+                PlayerPrefs.Save();
+            }
+        }
     }
 }

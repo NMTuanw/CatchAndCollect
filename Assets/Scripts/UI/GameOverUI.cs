@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -7,44 +8,89 @@ using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
-    [SerializeField] private GameObject gameOverUI;
+    [Header("Score")]
+    [SerializeField] private TextMeshProUGUI targetScoreText;
+    [SerializeField] private TextMeshProUGUI yourScoreText;
 
-    [SerializeField] private Button restartButton;
-    [SerializeField] private Button mainMenuButton;
+    [Header("Stars")]
+    [SerializeField] private GameObject firstStar;
+    [SerializeField] private GameObject secondStar;
+    [SerializeField] private GameObject thirdStar;
 
-    void Awake()
+    [Header("Button")]
+    [SerializeField] private Button levelSelectButton;
+    [SerializeField] private Button homeButton;
+    [SerializeField] private Button retryButton;
+
+    private void Start()
     {
-        gameOverUI = GameObject.Find("GameOverUI");
-        
+        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;
         Hide();
+
+        levelSelectButton.onClick.AddListener(() => {
+            Loader.Load(Loader.Scene.LevelSelectScene);
+        });
+
+        homeButton.onClick.AddListener(() => {
+            Loader.Load(Loader.Scene.TownScene);
+        });
+
+        retryButton.onClick.AddListener(() => {
+            RestartGame();
+        });
     }
 
-    private void Update()
+    private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        restartButton.onClick.AddListener(() => {
-            //RestartGame();
-        });
-
-        mainMenuButton.onClick.AddListener(() =>
+        if (KitchenGameManager.Instance.IsGameOver())
         {
-            // return to town scene
-            //GoToTown();
-        });
+            Show();
+        }
+        else
+        {
+            Hide();
+        }
     }
 
     public void Show(){
-        gameOverUI.SetActive(true);
+        gameObject.SetActive(true);
         Time.timeScale = 0f;
+
         Debug.Log("GameOVer UI");
+
+
+        UpdateLevelStar();
+        UpdateScore();
     }
 
     private void Hide(){
-        gameOverUI.SetActive(false);
+        gameObject.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    private void RestartGame()
+    private void UpdateScore()
     {
-        SceneManager.LoadScene("GameScene");
+        targetScoreText.text = ScoreManager.instance.thirdStarScore.ToString();
+        yourScoreText.text = ScoreManager.instance.score.ToString();
+    }
+
+    private void UpdateLevelStar()
+    {
+        if (ScoreManager.instance.score >= ScoreManager.instance.firstStarScore)
+        {
+            firstStar.SetActive(true);
+        }
+        if (ScoreManager.instance.score >= ScoreManager.instance.secondStarScore)
+        {
+            secondStar.SetActive(true);
+        }
+        if (ScoreManager.instance.score >= ScoreManager.instance.thirdStarScore)
+        {
+            thirdStar.SetActive(true);
+        }
+    }
+    public void RestartGame()
+    {
+    	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
     }
 }

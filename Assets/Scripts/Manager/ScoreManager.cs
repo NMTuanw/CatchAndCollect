@@ -12,8 +12,9 @@ public class ScoreManager : MonoBehaviour
     public int firstStarScore;
     public int secondStarScore;
     public int thirdStarScore;
+
     public int score = 0;
-    public int currentStars = 0;
+    private int currentStars = 0;
 
     private void Awake()
     {

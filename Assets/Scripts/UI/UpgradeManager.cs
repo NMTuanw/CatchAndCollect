@@ -18,7 +18,6 @@ public class UpgradeManager : MonoBehaviour
 
     [Header("Other")]
     public Button resetButton; // Nút để reset chỉ số
-    public Button loadGameSceneButton;
 
     private void Awake()
     {
@@ -34,11 +33,6 @@ public class UpgradeManager : MonoBehaviour
         dashCooldownButton.onClick.AddListener(upgradeSystem.UpgradeDashCooldown);
 
         resetButton.onClick.AddListener(upgradeSystem.ResetCharacterStats);
-    }
-
-    private void LoadGameScene(string scene)
-    {
-        SceneManager.LoadScene(scene);
     }
 
 }

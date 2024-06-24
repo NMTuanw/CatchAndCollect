@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +6,8 @@ using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public static HealthManager instance;
+    public static HealthManager Instance { get; private set; }
+
     public CharacterStats characterStats;
     public GameObject player;
 
@@ -18,14 +20,7 @@ public class HealthManager : MonoBehaviour
         characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
 
         // Singleton pattern
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
     void Start()
     {
@@ -44,6 +39,7 @@ public class HealthManager : MonoBehaviour
     {
         health += value;
         UpdateHealthBar();
+        
     }
 
     public void RemoveHealth(int value)
@@ -62,9 +58,7 @@ public class HealthManager : MonoBehaviour
         if (player != null)
         {
             Destroy(player);
-            //GameManager.Instance.GameOver();
         }
-        Debug.Log("Player die");
     }
 
 }

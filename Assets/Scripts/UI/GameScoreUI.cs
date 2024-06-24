@@ -11,8 +11,6 @@ public class GameScoreUI : MonoBehaviour
     [SerializeField] private GameObject secondStar;
     [SerializeField] private GameObject thirdStar;
 
-
-
     void Update()
     {
         UpdateScoreText();

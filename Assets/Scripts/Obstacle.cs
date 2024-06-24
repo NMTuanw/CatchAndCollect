@@ -22,7 +22,7 @@ public class Obstacle : MonoBehaviour
         {   
             Destroy(gameObject);
             itemSO.collectedNumber += 1;
-            HealthManager.instance.RemoveHealth(obstacleDamage);
+            HealthManager.Instance.RemoveHealth(obstacleDamage);
             Debug.Log("Obstacle touched the player.");
         }
     }

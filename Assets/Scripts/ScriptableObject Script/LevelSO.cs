@@ -10,6 +10,7 @@ public class LevelSO : ScriptableObject
     public string levelName;
     public Sprite levelImage;
 
+    public int highScore;
     public int levelStars;
     
 }

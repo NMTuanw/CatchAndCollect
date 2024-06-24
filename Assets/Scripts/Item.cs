@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -5,6 +6,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public static event EventHandler OnItemCollect;
     public ItemSO itemSO;
     
     private void Update() {
@@ -24,6 +26,8 @@ public class Item : MonoBehaviour
             itemSO.collectedNumber += 1;
             ScoreManager.instance.AddScore(itemSO.gameScore);
             Debug.Log("Prob touched the player.");
+
+            OnItemCollect?.Invoke(this, EventArgs.Empty);
         }
     }
 }

@@ -35,7 +35,7 @@ public class HealthUI : MonoBehaviour
 
     private void UpdateUI()
     {
-        healthText.text = "" + HealthManager.instance.health;
+        healthText.text = "" + HealthManager.Instance.health;
         if (spriteRenderer != null)
         {
             healthImage.sprite = spriteRenderer.sprite;
@@ -54,7 +54,7 @@ public class HealthUI : MonoBehaviour
     private void UpdateHealthBar(){
         if (healthBar != null)
         {
-            healthBar.fillAmount = (float)characterStats.health / HealthManager.instance.health;
+            healthBar.fillAmount = (float)characterStats.health / HealthManager.Instance.health;
         }
     }
 }

@@ -7,37 +7,19 @@ using UnityEngine.UI;
 
 public class GameTimerUI : MonoBehaviour
 {
-    public float countDownTime; // float thi moi dung Time.deltatime duoc
+    private float countDownTime = 0f;
     public TextMeshProUGUI timerText;
-    private bool gameStarted;
     
-    private void Awake()
-    {
-        GameStartCoundownUI.GameStartCountdownFinished += GameStartCoundownUI_GameStartCountdownFinished;
-    }
-
-    private void GameStartCoundownUI_GameStartCountdownFinished()
-    {
-        gameStarted = true;
-    }
-
     private void Update()
     {
-        if (gameStarted)
-        {
-            CountdownGameTimer();
-        }
+        CountdownGameTimer();
     }
 
     private void CountdownGameTimer()
     {
-        countDownTime -= Time.deltaTime;
-        timerText.text =  "" + (int)countDownTime;
+        //countDownTime = KitchenGameManager.Instance.gamePlayingTimer;
+        countDownTime = KitchenGameManager.Instance.GetPlayingTimer();
 
-        if (countDownTime < 0)
-        {
-            countDownTime = 0;
-            // GameOver
-        }
+        timerText.text =  "" + (int)countDownTime;
     }
 }

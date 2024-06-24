@@ -15,3 +15,4 @@ MonoBehaviour:
   levelIndex: 1
   levelName: Level 1
   levelImage: {fileID: 21300000, guid: 8dd68a12a134a3e48b25ebf88d9dc0bd, type: 3}
+  levelStars: 0
