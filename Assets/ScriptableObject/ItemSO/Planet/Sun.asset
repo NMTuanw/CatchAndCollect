@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Sun
   droppingSpeed: 15
-  energyWhenCollect: 0
-  itemColor: {r: 1, g: 1, b: 1, a: 0}
+  gameScore: 0
+  itemColor: {r: 0.9709896, g: 1, b: 0, a: 0}
   itemIcon: {fileID: 21300000, guid: d90b58b3fc32d1742977fda3c5c31bf8, type: 3}
   collectedNumber: 0
   quantity: 0

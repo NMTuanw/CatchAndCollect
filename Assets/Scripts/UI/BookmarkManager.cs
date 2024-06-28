@@ -9,17 +9,15 @@ public class BookmarkManager : MonoBehaviour
     public GameObject[] bookmarkPages;
 
     [Header("Buttons")]
-    public Button fruitButton;
-    public Button characterButton;
-    public Button enemyButton;
+    public Button collectButton;
+    public Button obstacleButton;
 
     private void Start()
     {
         SwitchBookmark(0);
         
-        fruitButton.onClick.AddListener(() => SwitchBookmark(0));
-        characterButton.onClick.AddListener(() => SwitchBookmark(1));
-        enemyButton.onClick.AddListener(() => SwitchBookmark(2));
+        collectButton.onClick.AddListener(() => SwitchBookmark(0));
+        obstacleButton.onClick.AddListener(() => SwitchBookmark(1));
     }
 
     private void SwitchBookmark(int index){

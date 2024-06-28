@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    public static event EventHandler OnObstacleCollect;
     public ItemSO itemSO;
     [SerializeField] private int obstacleDamage;
 
@@ -24,6 +26,8 @@ public class Obstacle : MonoBehaviour
             itemSO.collectedNumber += 1;
             HealthManager.Instance.RemoveHealth(obstacleDamage);
             Debug.Log("Obstacle touched the player.");
+            OnObstacleCollect?.Invoke(this, EventArgs.Empty);
+
         }
     }
 }

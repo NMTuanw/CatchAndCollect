@@ -8,6 +8,8 @@ public class HealthManager : MonoBehaviour
 {
     public static HealthManager Instance { get; private set; }
 
+    public static event EventHandler OnPlayerDie;
+
     public CharacterStats characterStats;
     public GameObject player;
 
@@ -58,6 +60,7 @@ public class HealthManager : MonoBehaviour
         if (player != null)
         {
             Destroy(player);
+            OnPlayerDie?.Invoke(this, EventArgs.Empty);
         }
     }
 

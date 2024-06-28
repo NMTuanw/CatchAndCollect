@@ -8,10 +8,10 @@ public class DropManager : MonoBehaviour
     public class Item
     {
         public GameObject prefab;
-        public float spawnRate; // Tỉ lệ spawn của vật phẩm
+        public float spawnRate;
     }
 
-    public Item[] items; // Danh sách các vật phẩm và tỉ lệ spawn của chúng
+    public Item[] items; 
 
     [SerializeField] private float probSpawnTime;
 

@@ -21,23 +21,44 @@ public class SoundManager : MonoBehaviour
 
         soundSource = GetComponent<AudioSource>();
     }
-
     private void OnEnable()
     {
         // Register to event
         Item.OnItemCollect += Item_OnItemCollect;
+        Obstacle.OnObstacleCollect += Obstacle_OnObstacleCollect;
+        Coin.OnCoinCollect += Coin_OnCoinCollect;
+        HealthManager.OnPlayerDie += HealthManager_OnPlayerDie;
     }
-    private void Item_OnItemCollect(object sender, System.EventArgs e)
+
+    private void HealthManager_OnPlayerDie(object sender, System.EventArgs e)
     {
-        Item item = sender as Item;
+        PlaySound(audioClipSO.playerDeadSound);
+    }
+
+    private void Coin_OnCoinCollect(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipSO.collectSound);
+    }
+
+    private void Obstacle_OnObstacleCollect(object sender, System.EventArgs e)
+    {
         PlaySound(audioClipSO.fartSound);
     }
 
+    private void Item_OnItemCollect(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipSO.collectSound);
+
+    }
     private void OnDisable()
     {
         // Unregister from event
         Item.OnItemCollect -= Item_OnItemCollect;
+        Obstacle.OnObstacleCollect -= Obstacle_OnObstacleCollect;
+        Coin.OnCoinCollect -= Coin_OnCoinCollect;
+        HealthManager.OnPlayerDie -= HealthManager_OnPlayerDie;
     }
+
     private void PlaySound(AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f)
     {
         AudioSource.PlayClipAtPoint(audioClip, position, volumeMultiplier * volume);

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Spider White
   m_EditorClassIdentifier: 
   itemName: Spider White
-  droppingSpeed: 30
-  energyWhenCollect: 0
-  itemColor: {r: 1, g: 1, b: 1, a: 1}
+  droppingSpeed: 100
+  gameScore: 0
+  itemColor: {r: 0.9411765, g: 0.42352942, b: 0.40784314, a: 1}
   itemIcon: {fileID: 21300000, guid: 5793b5fae1dbfeb4aa07f4d650e1ddee, type: 3}
   collectedNumber: 0
   quantity: 0
-  itemDescription: 
+  itemDescription: '- Extremely Dangerous Enemy
+
+'

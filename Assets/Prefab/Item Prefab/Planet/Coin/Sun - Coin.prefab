@@ -161,5 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85132fadde9f61488e6676d26069987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: c98937c7702b8044da4583c29124c613, type: 2}
   coinValue: 10
   droppingSpeed: 10

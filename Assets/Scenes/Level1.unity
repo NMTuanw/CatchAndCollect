@@ -383,6 +383,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 49293518}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 843a03aabcf59d047bb75885a7cfb0be, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &41233890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1492,7 +1504,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 240683433}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 49293518}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 843a03aabcf59d047bb75885a7cfb0be, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &240683433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,6 +1959,10 @@ MonoBehaviour:
   - prefab: {fileID: 2478528115376596334, guid: 8c0c5599f2de2354c84cde288e424963, type: 3}
     spawnRate: 5
   - prefab: {fileID: 2478528115376596334, guid: df3969618bbafc04ebf5ce9e2e0ab37c, type: 3}
+    spawnRate: 3
+  - prefab: {fileID: 2478528115376596334, guid: a5f12169ad31aab4f9e1221af52b2416, type: 3}
+    spawnRate: 1
+  - prefab: {fileID: 2478528115376596334, guid: 33c7e1ffd79167d4faa065ea55b7f583, type: 3}
     spawnRate: 3
   probSpawnTime: 1
   minSpawnPositionX: -30
@@ -5291,7 +5319,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 996909995}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 49293518}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 843a03aabcf59d047bb75885a7cfb0be, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &996909995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5778,7 +5818,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1177666858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 49293518}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 843a03aabcf59d047bb75885a7cfb0be, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1177666858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6479,7 +6531,7 @@ GameObject:
   - component: {fileID: 1389959899}
   - component: {fileID: 1389959898}
   m_Layer: 0
-  m_Name: KitchenGameManager
+  m_Name: CatchGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7341,6 +7393,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 49293518}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 843a03aabcf59d047bb75885a7cfb0be, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1574082036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8091,6 +8155,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 49293518}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 843a03aabcf59d047bb75885a7cfb0be, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

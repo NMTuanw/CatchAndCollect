@@ -17,8 +17,7 @@ public class GameTimerUI : MonoBehaviour
 
     private void CountdownGameTimer()
     {
-        //countDownTime = KitchenGameManager.Instance.gamePlayingTimer;
-        countDownTime = KitchenGameManager.Instance.GetPlayingTimer();
+        countDownTime = CatchGameManager.Instance.GetPlayingTimer();
 
         timerText.text =  "" + (int)countDownTime;
     }

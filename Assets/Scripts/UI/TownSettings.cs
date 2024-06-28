@@ -36,11 +36,11 @@ public class TownSettings : MonoBehaviour // , IPointerClickHandler
         Hide();
     }
 
-    private void KitchenGameManager_OnGameOptionOpen(object sender, EventArgs e)
+    private void CatchGameManager_OnGameOptionOpen(object sender, EventArgs e)
     {
         Show();
     }
-    private void KitchenGameManager_OnGameOptionClose(object sender, EventArgs e)
+    private void CatchGameManager_OnGameOptionClose(object sender, EventArgs e)
     {
         Hide();
     }

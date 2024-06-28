@@ -24,7 +24,7 @@ public class GameOverUI : MonoBehaviour
 
     private void Start()
     {
-        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;
+        CatchGameManager.Instance.OnStateChanged += CatchGameManager_OnStateChanged;
         Hide();
 
         levelSelectButton.onClick.AddListener(() => {
@@ -40,9 +40,9 @@ public class GameOverUI : MonoBehaviour
         });
     }
 
-    private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)
+    private void CatchGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        if (KitchenGameManager.Instance.IsGameOver())
+        if (CatchGameManager.Instance.IsGameOver())
         {
             Show();
         }

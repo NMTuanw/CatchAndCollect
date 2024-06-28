@@ -20,10 +20,10 @@ public class GameSettingsUI : MonoBehaviour // , IPointerClickHandler
         Instance = this;
 
         settingButton.onClick.AddListener(() => {
-            KitchenGameManager.Instance.TogglePauseGame();
+            CatchGameManager.Instance.TogglePauseGame();
         });
         closeButton.onClick.AddListener(() => {
-            KitchenGameManager.Instance.TogglePauseGame();
+            CatchGameManager.Instance.TogglePauseGame();
         });
         quitButton.onClick.AddListener(() => {
             Loader.Load(Loader.Scene.LevelSelectScene);
@@ -31,8 +31,8 @@ public class GameSettingsUI : MonoBehaviour // , IPointerClickHandler
     }
 
     private void Start() {
-        KitchenGameManager.Instance.OnGameOptionOpen += KitchenGameManager_OnGameOptionOpen;
-        KitchenGameManager.Instance.OnGameOptionClose += KitchenGameManager_OnGameOptionClose;
+        CatchGameManager.Instance.OnGameOptionOpen += KitchenGameManager_OnGameOptionOpen;
+        CatchGameManager.Instance.OnGameOptionClose += KitchenGameManager_OnGameOptionClose;
         Hide();
     }
 

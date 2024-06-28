@@ -67,12 +67,12 @@ public class GameStartCoundownUI : MonoBehaviour
     }
     private void Start()
     {
-        KitchenGameManager.Instance.OnStateChanged += KitchenGameManager_OnStateChanged;
+        CatchGameManager.Instance.OnStateChanged += CatchGameManager_OnStateChanged;
     }
 
     private void Update()
     {
-        int countdownNumber = Mathf.CeilToInt(KitchenGameManager.Instance.GetCountdownToStartTimer());
+        int countdownNumber = Mathf.CeilToInt(CatchGameManager.Instance.GetCountdownToStartTimer());
         countdownText.text = countdownNumber.ToString();
 
         if (previousCountdownNumber != countdownNumber)
@@ -82,9 +82,9 @@ public class GameStartCoundownUI : MonoBehaviour
             //SoundManager.Instance.PlayCountdownNumber();
         }
     }
-    private void KitchenGameManager_OnStateChanged(object sender, System.EventArgs e)
+    private void CatchGameManager_OnStateChanged(object sender, System.EventArgs e)
     {
-        if (KitchenGameManager.Instance.IsCountdownToStartActive())
+        if (CatchGameManager.Instance.IsCountdownToStartActive())
         {
             Show();
         }

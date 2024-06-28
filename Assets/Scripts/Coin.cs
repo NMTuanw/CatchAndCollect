@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
+    public static event EventHandler OnCoinCollect;
+    public ItemSO itemSO;
     [SerializeField] private int coinValue;
     [SerializeField] private float droppingSpeed;
 
@@ -23,6 +26,8 @@ public class Coin : MonoBehaviour
             Destroy(gameObject);
             CoinManager.instance.AddCoin(coinValue);
             Debug.Log("Prob touched the player.");
+            OnCoinCollect?.Invoke(this, EventArgs.Empty);
+
         }
     }
 }
