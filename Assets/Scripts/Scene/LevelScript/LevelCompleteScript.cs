@@ -6,11 +6,11 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class LevelCompleteScript : MonoBehaviour
 {
-    public LevelSO levelSO;
+    public LevelSO currentlevelSO;
 
     public void OnLevelComplete()
     {
-        ScoreManager.instance.CheckScoreAndSaveStars(levelSO);
+        ScoreManager.instance.CheckScoreAndSaveStars(currentlevelSO);
 
         SaveHighScore();
         UnlockNextLevel();
@@ -18,19 +18,19 @@ public class LevelCompleteScript : MonoBehaviour
 
     private void SaveHighScore()
     {
-        if (ScoreManager.instance.score > levelSO.highScore)
+        if (ScoreManager.instance.score > currentlevelSO.highScore)
         {
-            levelSO.highScore = ScoreManager.instance.score;
+            currentlevelSO.highScore = ScoreManager.instance.score;
         }
     }
 
     private void UnlockNextLevel()
     {
-        if(levelSO.levelStars >= 2) 
+        if(currentlevelSO.levelStars >= 2) 
         {
             int unlockedLevels = LevelSelectManager.unlockedLevels;
 
-            if(levelSO.levelIndex == unlockedLevels)
+            if(currentlevelSO.levelIndex == unlockedLevels)
             {
                 unlockedLevels++; 
                 PlayerPrefs.SetInt("unlockedLevels", unlockedLevels);

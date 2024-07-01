@@ -5,13 +5,10 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthUI : MonoBehaviour
+public class AvatarUI : MonoBehaviour
 {
     [Header("UI")]
-    public TextMeshProUGUI healthText;
-    public Image healthImage;
-
-    public Image healthBar;
+    public Image avatarImage;
 
     [Header("Reference Script")]
     public CharacterStats characterStats;
@@ -22,23 +19,20 @@ public class HealthUI : MonoBehaviour
     {
         characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
         spriteRenderer = GameObject.Find("Player").GetComponentInChildren<SpriteRenderer>();
-
-        UpdateHealthBar();
     }
 
     private void Update()
     {
-        UpdateUI();
+        UpdateUIAvatar();
 
         FindPlayerReferences();
     }
 
-    private void UpdateUI()
+    private void UpdateUIAvatar()
     {
-        healthText.text = "" + HealthManager.Instance.health;
         if (spriteRenderer != null)
         {
-            healthImage.sprite = spriteRenderer.sprite;
+            avatarImage.sprite = spriteRenderer.sprite;
         }
     }
 
@@ -51,10 +45,4 @@ public class HealthUI : MonoBehaviour
         }
     }
 
-    private void UpdateHealthBar(){
-        if (healthBar != null)
-        {
-            healthBar.fillAmount = (float)characterStats.health / HealthManager.Instance.health;
-        }
-    }
 }

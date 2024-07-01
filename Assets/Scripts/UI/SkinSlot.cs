@@ -50,6 +50,7 @@ public class SkinSlot : MonoBehaviour
             skinButtonUI.SetActive(true);
             ownedButtonUI.SetActive(false);           
         }
+
     }
 
     private void OnSkinButtonClick()
@@ -66,9 +67,12 @@ public class SkinSlot : MonoBehaviour
 
     private void PurchaseSkin(SkinSO skinToPurchase)
     {
-        if (CoinManager.instance.coin >= skinToPurchase.skinPrice)
+        int coin = CoinManager.instance.coin;
+        int skinPrice = skinToPurchase.skinPrice;
+
+        if (coin >= skinPrice)
         {
-            CoinManager.instance.RemoveCoin(skinToPurchase.skinPrice);
+            CoinManager.instance.RemoveCoin(skinPrice);
             skinToPurchase.isUnlock = true;
         }
     }

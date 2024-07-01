@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,11 +11,12 @@ public class HealthManager : MonoBehaviour
 
     public static event EventHandler OnPlayerDie;
 
-    public CharacterStats characterStats;
-    public GameObject player;
+    private CharacterStats characterStats;
+    private GameObject player;
 
     public int health;
     public Image healthBar;
+    public TextMeshProUGUI healthText;
 
     private void Awake()
     {
@@ -29,8 +31,11 @@ public class HealthManager : MonoBehaviour
         health = characterStats.health;
         UpdateHealthBar();
     }
+
     private void UpdateHealthBar()
     {
+        healthText.text = "" + health;
+
         if (healthBar != null)
         {
             healthBar.fillAmount =  (float)health / (float)characterStats.health;

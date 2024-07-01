@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3646e8460d324d9f65d82b000a4e6, type: 3}
+  m_Name: GameEffectSO
+  m_EditorClassIdentifier: 
+  hitEffects:
+  - {fileID: 8194992990867289333, guid: 87f77a4b8e348c64b997af1a071f5de6, type: 3}
+  - {fileID: 725748389856807712, guid: 08d9ac4ea9c7e4d4490f5aeaf87db4ec, type: 3}
+  - {fileID: 2433282508523890284, guid: 1021c91315fc2164bbbb55e5dc33a8f0, type: 3}
+  hitEffect_1: {fileID: 4021103657954561960, guid: 66a1f7e90aace054b802d4586f7f86c6, type: 3}
+  hitEffect_2: {fileID: 725748389856807712, guid: 08d9ac4ea9c7e4d4490f5aeaf87db4ec, type: 3}
+  hitEffect_3: {fileID: 2433282508523890284, guid: 1021c91315fc2164bbbb55e5dc33a8f0, type: 3}
+  deadEffects: []
+  deadEffect_1: {fileID: 8791802859067835849, guid: 78b35a9e08e1b4a488e65dd3e05b828e, type: 3}
+  deadEffect_2: {fileID: 2353600328317590899, guid: 6f5a3acbeff5a814f99c5c963b727737, type: 3}
+  deadEffect_3: {fileID: 5985634496115995770, guid: 3a0417d15407b89408f45b919071d8c2, type: 3}
+  collectEffects: []
+  collectEffect_1: {fileID: 141433446842962268, guid: af017ce1c2806274b8eb202c3ab7256e, type: 3}
+  collectEffect_2: {fileID: 0}
+  collectEffect_3: {fileID: 0}
+  environmentEffects: []
+  environmentEffect_1: {fileID: 198999705567538108, guid: bf2b705859d09ec4194432b0e23db251, type: 3}
+  environmentEffect_2: {fileID: 198617523707308622, guid: 2ebb0f175663c1f419ba4bdd603e784f, type: 3}
+  environmentEffect_3: {fileID: 6077168872989578746, guid: f24361af8f2410c42b17d128d73f3a70, type: 3}

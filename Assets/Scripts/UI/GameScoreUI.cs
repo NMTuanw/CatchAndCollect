@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameScoreUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Image scoreBarFillImage;
 
     [SerializeField] private GameObject firstStar;
     [SerializeField] private GameObject secondStar;
@@ -19,7 +21,18 @@ public class GameScoreUI : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        scoreText.text = ScoreManager.instance.score.ToString();
+        int score = ScoreManager.instance.score;
+        scoreText.text = score.ToString();
+
+        // Update score bar fill
+        UpdateScoreBar(score);
+    }
+
+    private void UpdateScoreBar(int score)
+    {
+        float maxScore = ScoreManager.instance.thirdStarScore;
+        float fillAmount = (float)score / maxScore;
+        scoreBarFillImage.fillAmount = Mathf.Clamp(fillAmount, 0f, 1f); 
     }
 
     private void UpdateStarFromScoreUI()
