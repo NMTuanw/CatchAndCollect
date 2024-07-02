@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Health
   upgradeIcon: {fileID: 465329287, guid: 221648c1694032c4e9ca8a387015092c, type: 3}
-  upgradeLevel: 3
+  upgradeLevel: 4
   upgradePrice: 100
   upgradeLevelCap: 20
   upgradeDescription: Increase Health

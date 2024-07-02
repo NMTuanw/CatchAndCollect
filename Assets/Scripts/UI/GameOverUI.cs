@@ -44,7 +44,7 @@ public class GameOverUI : MonoBehaviour
     {
         if (CatchGameManager.Instance.IsGameOver())
         {
-            Show();
+            CoroutineStarter.Instance.StartCoroutine(DelayShowGameOverUI());
         }
         else
         {
@@ -54,10 +54,6 @@ public class GameOverUI : MonoBehaviour
 
     public void Show(){
         gameObject.SetActive(true);
-        Time.timeScale = 0f;
-
-        Debug.Log("GameOVer UI");
-
 
         UpdateLevelStar();
         UpdateScore();
@@ -92,5 +88,14 @@ public class GameOverUI : MonoBehaviour
     public void RestartGame()
     {
     	SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
+    }
+
+    IEnumerator DelayShowGameOverUI()
+    {
+        yield return new WaitForSeconds(1.2f);
+        Show();
+
+        Time.timeScale = 0f;
+
     }
 }

@@ -10,7 +10,7 @@ public class CatchGameManager : MonoBehaviour
     public event EventHandler OnStateChanged;
     public event EventHandler OnGameOptionOpen;
     public event EventHandler OnGameOptionClose;
-    public event EventHandler OnGameOver;
+
     private enum State {
         WaitingToStart,
         CountdownToStart,

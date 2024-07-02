@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class DashSkillCooldownUI : MonoBehaviour
 {
     [Header("Dash")]
-    public Image dashCooldownImage;
+    public Image dashFillImage;
+    private CharacterStats characterStats;
+
     private Dash dashScript;
     private float cooldownTimer = 0f;
     private bool isCooldown = false;
@@ -15,17 +17,13 @@ public class DashSkillCooldownUI : MonoBehaviour
     private void Start()
     {
         dashScript = FindObjectOfType<Dash>();
+        characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
 
-        dashCooldownImage.fillAmount = 0;
+
+        dashFillImage.fillAmount = 0;
         
-        if (dashScript != null)
-        {
-            cooldownTimer = dashScript.DashCooldown;
-        }
-        else
-        {
-            Debug.LogWarning("Dash script not found in the scene.");
-        }
+        cooldownTimer = characterStats.dashCooldown;
+
     }
     
     private void Update()
@@ -49,7 +47,7 @@ public class DashSkillCooldownUI : MonoBehaviour
     private void StartCooldown()
     {
         isCooldown = true;
-        cooldownTimer = dashScript.DashCooldown;
+        cooldownTimer = characterStats.dashCooldown;
     }
 
     private void SkillCooldownUI()
@@ -62,7 +60,7 @@ public class DashSkillCooldownUI : MonoBehaviour
             isCooldown = false;
         }
 
-        float fillAmount = Mathf.Clamp01(cooldownTimer / dashScript.DashCooldown);
-        dashCooldownImage.fillAmount = fillAmount;
+        float fillAmount = Mathf.Clamp01(cooldownTimer / characterStats.dashCooldown);
+        dashFillImage.fillAmount = fillAmount;
     }
 }

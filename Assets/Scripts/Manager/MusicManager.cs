@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MusicManager : MonoBehaviour
 {
-    public static MusicManager Instance { get; private set;}
+    public static MusicManager Instance { get; private set; }
 
     [SerializeField] private AudioClip backgroundMusic;
 
@@ -28,6 +28,4 @@ public class MusicManager : MonoBehaviour
         musicSource.clip = audioClip;
         musicSource.Play();
     }
-
-
 }

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: Dash Cooldown
   upgradeIcon: {fileID: 21300000, guid: 9c4fd966a3216314bb5807aaca334cf7, type: 3}
-  upgradeLevel: 3
+  upgradeLevel: 6
   upgradePrice: 300
-  upgradeLevelCap: 5
+  upgradeLevelCap: 20
   upgradeDescription: 'Decrease Dash Cooldown
 
 '
