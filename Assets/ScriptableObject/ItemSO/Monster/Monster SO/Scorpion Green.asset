@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Scorpion Green
   m_EditorClassIdentifier: 
   itemName: Scorpion Green
-  droppingSpeed: 40
+  droppingSpeed: 15
   gameScore: 0
   itemColor: {r: 0.9411765, g: 0.42352942, b: 0.40784314, a: 1}
   itemIcon: {fileID: 21300000, guid: 62714075e7ccf3b4f9a1900e6b827e89, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: 
+  itemDescription: 'Scorpion Green
+
+    Damage: 15'

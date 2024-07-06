@@ -45,7 +45,7 @@ public class DropManager : MonoBehaviour
         foreach (Item item in items)
         {
             cumulativeRate += item.spawnRate;
-            Debug.Log("cumulativeRate: " + cumulativeRate + " - "+ "item.spawnRate: " + item.spawnRate);
+
             if (randomValue <= cumulativeRate)
             {
                 Instantiate(item.prefab, spawnPositionX, Quaternion.identity);

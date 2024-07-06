@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Item SO")]
 public class ItemSO : ScriptableObject 
 {
-    [Header("Item Stats (changeable)")]
+    [Header("Item Stats")]
     public string itemName;
 
     public float droppingSpeed;
@@ -15,11 +16,6 @@ public class ItemSO : ScriptableObject
 
     public Color itemColor;
     public Sprite itemIcon;
-
-    [Header("Collected (read-only)")]
-    public int collectedNumber;
-    public int quantity;
-
 
     [TextArea]
     public string itemDescription;

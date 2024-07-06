@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSO: {fileID: 11400000, guid: 354a7cafc1942414495de1c0162be2bd, type: 2}
-  obstacleDamage: 20
+  obstacleDamage: 30

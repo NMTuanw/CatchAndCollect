@@ -29,7 +29,7 @@ public class LevelSelectManager : MonoBehaviour
         UnlockLevelButton();
     }
     
-    private void UnlockLevelButton() // unl = 1 v1: 1 > 0 mo khoa o 1, v2: 2 > 1 mo khoa o 2
+    private void UnlockLevelButton() 
     {
         int levelIndex = 0;
         unlockedLevels = PlayerPrefs.GetInt("unlockedLevels", levelIndex);  // unlockedlevels lấy giá trị của levelIndex
@@ -43,9 +43,9 @@ public class LevelSelectManager : MonoBehaviour
 
         Debug.Log(unlockedLevels);
         
-        for (int i = 0; i < levelSlots.Length; i++) // levelslots = 2
+        for (int i = 0; i < levelSlots.Length; i++) 
         {
-            if (unlockedLevels > i) // nếu unlockedlevels >= i 0,1 thì mở khóa button của levelSlots
+            if (unlockedLevels > i) 
             {
                 Debug.Log(unlockedLevels);
                 levelSlots[i].levelButton.interactable = true;

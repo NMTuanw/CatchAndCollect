@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Dash Cooldown
   upgradeIcon: {fileID: 21300000, guid: 9c4fd966a3216314bb5807aaca334cf7, type: 3}
   upgradeLevel: 6
-  upgradePrice: 300
+  upgradePrice: 100
   upgradeLevelCap: 20
   upgradeDescription: 'Decrease Dash Cooldown
 

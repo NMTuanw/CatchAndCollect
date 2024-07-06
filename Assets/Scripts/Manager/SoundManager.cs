@@ -27,7 +27,19 @@ public class SoundManager : MonoBehaviour
         Item.OnItemCollect += Item_OnItemCollect;
         Obstacle.OnObstacleCollect += Obstacle_OnObstacleCollect;
         Coin.OnCoinCollect += Coin_OnCoinCollect;
+        Health.OnHealthCollect += Health_OnHealthCollect;
         HealthManager.OnPlayerDie += HealthManager_OnPlayerDie;
+        Dash.OnPlayerDash += Dash_OnPlayerDash;
+    }
+
+    private void Dash_OnPlayerDash(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipSO.dashSound);
+    }
+
+    private void Health_OnHealthCollect(object sender, System.EventArgs e)
+    {
+        PlaySound(audioClipSO.healSound);
     }
 
     private void HealthManager_OnPlayerDie(object sender, System.EventArgs e)
@@ -56,7 +68,9 @@ public class SoundManager : MonoBehaviour
         Item.OnItemCollect -= Item_OnItemCollect;
         Obstacle.OnObstacleCollect -= Obstacle_OnObstacleCollect;
         Coin.OnCoinCollect -= Coin_OnCoinCollect;
+        Health.OnHealthCollect -= Health_OnHealthCollect;
         HealthManager.OnPlayerDie -= HealthManager_OnPlayerDie;
+        Dash.OnPlayerDash -= Dash_OnPlayerDash;
     }
 
     private void PlaySound(AudioClip audioClip, Vector3 position, float volumeMultiplier = 1f)
@@ -66,11 +80,6 @@ public class SoundManager : MonoBehaviour
     private void PlayRandomSound(AudioClip[] audioClipArray, Vector3 position, float volume = 1f)
     {
         PlaySound(audioClipArray[Random.Range(0, audioClipArray.Length)], position, volume);
-    }
-
-    public void PlayFootstepSound(Vector3 position, float volume)
-    {
-        PlaySound(audioClipSO.footstep, position, volume);
     }
 
     public void PlayCountdownNumber()

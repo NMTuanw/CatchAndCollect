@@ -28,7 +28,6 @@ public class PageSlot : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Sprite emptySlotIcon;
 
     private static PageSlot currentSelectedSlot; //  chia sẻ giữa tất cả các instance của FruitPageSlot.
-
     public bool isSlotSelected;
     void Start()
     {
@@ -74,7 +73,7 @@ public class PageSlot : MonoBehaviour, IPointerClickHandler
         pageSlotDescriptionImageBackground.color = itemSO.itemColor;
         pageSlotDescriptionImage.sprite = itemSO.itemIcon; 
         pageSlotName.text = itemSO.itemName.ToString();
-        pageSlotCollected.text = "Collected: " + itemSO.collectedNumber.ToString();
+        pageSlotCollected.text = "Collected: " + PlayerPrefs.GetInt(itemSO.itemName + "collectedNumber", 0);
         pageSlotDescriptionBackground.color = itemSO.itemColor;
         pageSlotDescription.text = itemSO.itemDescription;       
 

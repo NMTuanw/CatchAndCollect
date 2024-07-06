@@ -12,13 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b6797e8ba5df204abc51bf5ce128dcb, type: 3}
   m_Name: Scorpion Blue
   m_EditorClassIdentifier: 
-  itemName: Scorpion Blu
+  itemName: Scorpion Blue
   droppingSpeed: 30
   gameScore: 0
   itemColor: {r: 0.9411765, g: 0.42352942, b: 0.40784314, a: 1}
   itemIcon: {fileID: 21300000, guid: 275b1c73f336d884bb2aba7811cde155, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: '
+  itemDescription: 'Scorpion Blue
 
-'
+    Damage: 20'

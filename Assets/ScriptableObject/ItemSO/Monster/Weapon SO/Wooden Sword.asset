@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Wooden Sword
   m_EditorClassIdentifier: 
   itemName: Wooden Sword
-  droppingSpeed: 15
-  gameScore: 5
+  droppingSpeed: 30
+  gameScore: 10
   itemColor: {r: 0.87169814, g: 0.8552896, b: 0.090459146, a: 1}
   itemIcon: {fileID: -267587109, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
-  collectedNumber: 7
-  quantity: 0
-  itemDescription: This is a sword
+  itemDescription: 'Wooden Sword
+
+    Score: 10'

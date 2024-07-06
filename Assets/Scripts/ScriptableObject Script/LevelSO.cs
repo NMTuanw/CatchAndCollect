@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class LevelSO : ScriptableObject
     public string levelName;
     public Sprite levelImage;
 
-    public int highScore;
-    public int levelStars;
+    public int highScore; // bo di
+    public int levelStars; // bo
     
 }

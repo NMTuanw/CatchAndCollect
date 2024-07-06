@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Golden Apple
   m_EditorClassIdentifier: 
   itemName: Golden Apple
-  droppingSpeed: 10
+  droppingSpeed: 30
   gameScore: 5
   itemColor: {r: 1, g: 0.98295605, b: 0, a: 1}
   itemIcon: {fileID: -1464665907, guid: 3a317ec5611b6ca45b80c731dc03513e, type: 3}
   collectedNumber: 0
   quantity: 0
-  itemDescription: Chilly chilly jalapeno
+  itemDescription: 'Golden Apple give 20 coin '

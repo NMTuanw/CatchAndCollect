@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Skull Green
   m_EditorClassIdentifier: 
   itemName: Skull Green
-  droppingSpeed: 40
+  droppingSpeed: 15
   gameScore: 0
   itemColor: {r: 0.93962264, g: 0.4235312, b: 0.4095336, a: 1}
   itemIcon: {fileID: 21300000, guid: 84b99e6d132d28c43b8536c2b268d578, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: 
+  itemDescription: 'Skull Green
+
+    Damage: 15'

@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Scorpion White
   m_EditorClassIdentifier: 
   itemName: Scorpion White
-  droppingSpeed: 100
+  droppingSpeed: 50
   gameScore: 0
   itemColor: {r: 0.9411765, g: 0.42352942, b: 0.40784314, a: 1}
   itemIcon: {fileID: 21300000, guid: 1c5687fea8ddb8049abadc99d92a9837, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: '- Extremely Dangerous Enemy
+  itemDescription: 'Scorpion White
 
-'
+    Damage: 50'

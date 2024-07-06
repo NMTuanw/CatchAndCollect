@@ -1,17 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameScoreUI : MonoBehaviour
 {
+    public static event EventHandler OnStarShow;
+
+
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Image scoreBarFillImage;
 
     [SerializeField] private GameObject firstStar;
     [SerializeField] private GameObject secondStar;
     [SerializeField] private GameObject thirdStar;
+    private void Start()
+    {
+        ScoreManager.instance.score = 0;
+        ScoreManager.instance.currentStars = 0;
+    }
 
     void Update()
     {
@@ -54,7 +64,6 @@ public class GameScoreUI : MonoBehaviour
     private void ShowStar(GameObject gameObject)
     {
         gameObject.SetActive(true);
-        // add Effect
     }
 
 }

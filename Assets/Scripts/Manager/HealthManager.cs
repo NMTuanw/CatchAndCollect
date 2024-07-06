@@ -25,6 +25,7 @@ public class HealthManager : MonoBehaviour
 
         // Singleton pattern
         Instance = this;
+        health = characterStats.health;
     }
     void Start()
     {
@@ -44,9 +45,15 @@ public class HealthManager : MonoBehaviour
 
     public void AddHealth(int value)
     {
-        health += value;
+        if (health < characterStats.health)
+        {
+            health += value;
+            if (health >= characterStats.health)
+            {
+                health = characterStats.health;
+            }
+        }
         UpdateHealthBar();
-        
     }
 
     public void RemoveHealth(int value)

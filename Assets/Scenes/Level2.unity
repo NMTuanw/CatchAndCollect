@@ -2656,14 +2656,30 @@ MonoBehaviour:
   - prefab: {fileID: 2478528115376596334, guid: ab29d9d11e0bf004792fba66346e6cb8, type: 3}
     spawnRate: 2
   - prefab: {fileID: 2478528115376596334, guid: aa8ae25f78a12914c843ec2ffdf13cc3, type: 3}
-    spawnRate: 1
+    spawnRate: 2
   - prefab: {fileID: 2478528115376596334, guid: 8ba8cdd5f06fad24597b44f2d3639918, type: 3}
-    spawnRate: 3
+    spawnRate: 2
   - prefab: {fileID: 2478528115376596334, guid: 8c0c5599f2de2354c84cde288e424963, type: 3}
-    spawnRate: 4
+    spawnRate: 1
   - prefab: {fileID: 2478528115376596334, guid: 33c7e1ffd79167d4faa065ea55b7f583, type: 3}
-    spawnRate: 4
-  probSpawnTime: 1
+    spawnRate: 3
+  - prefab: {fileID: 2478528115376596334, guid: 93fe252021962d041bdad478d29040b7, type: 3}
+    spawnRate: 3
+  - prefab: {fileID: 2478528115376596334, guid: 154dcdf4902e39044a1f019dd602b551, type: 3}
+    spawnRate: 2
+  - prefab: {fileID: 2478528115376596334, guid: 09d3782dfbc0257428eae340910e28df, type: 3}
+    spawnRate: 3
+  - prefab: {fileID: 2478528115376596334, guid: 526b704d5500f7b4289e07df09301647, type: 3}
+    spawnRate: 2
+  - prefab: {fileID: 2478528115376596334, guid: 77b4993401c104e448d29ba7c4b772c5, type: 3}
+    spawnRate: 2
+  - prefab: {fileID: 2478528115376596334, guid: 12ec749f3e35b284195f49d3d7f4d28c, type: 3}
+    spawnRate: 3
+  - prefab: {fileID: 2478528115376596334, guid: 69b29cf03cf62634da7011d1180f6ad8, type: 3}
+    spawnRate: 1
+  - prefab: {fileID: 2478528115376596334, guid: 748f38124b4d4894597b253c0abdc2f7, type: 3}
+    spawnRate: 1
+  probSpawnTime: 0.5
   minSpawnPositionX: -45
   maxSpawnPositionX: 35
   spawnPostionY: 0
@@ -7851,6 +7867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentlevelSO: {fileID: 11400000, guid: cc4786c5b67aad1428f0b54beb05429c, type: 2}
+  currentLevelIndex: 2
 --- !u!4 &1184900524
 Transform:
   m_ObjectHideFlags: 0
@@ -12505,9 +12522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a849fced9410441991511b6232a248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1740351581}
   firstStarScore: 150
-  secondStarScore: 350
+  secondStarScore: 300
   thirdStarScore: 500
   score: 0
 --- !u!4 &1908462055
@@ -13539,6 +13555,8 @@ SceneRoots:
   - {fileID: 751665763}
   - {fileID: 1831544723}
   - {fileID: 1091645709}
+  - {fileID: 2088542358}
+  - {fileID: 836598923}
   - {fileID: 1425248261}
   - {fileID: 1344002278923528770}
   - {fileID: 1613484705}
@@ -13551,5 +13569,3 @@ SceneRoots:
   - {fileID: 1184900524}
   - {fileID: 1389959899}
   - {fileID: 446035187}
-  - {fileID: 2088542358}
-  - {fileID: 836598923}

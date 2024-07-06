@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Cerberus Black
   m_EditorClassIdentifier: 
   itemName: Cerberus Black
-  droppingSpeed: 10
+  droppingSpeed: 20
   gameScore: 0
   itemColor: {r: 0.9411765, g: 0.42352942, b: 0.40784314, a: 1}
   itemIcon: {fileID: 21300000, guid: 184ad60558a1f654aab63f1f265c074f, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: '- A hell dog with three head'
+  itemDescription: 'Cerberus Black
+
+    Damage: 20'

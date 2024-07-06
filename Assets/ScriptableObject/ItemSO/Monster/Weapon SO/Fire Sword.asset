@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Fire Sword
   droppingSpeed: 30
-  gameScore: 50
+  gameScore: 200
   itemColor: {r: 0.87169814, g: 0.8552896, b: 0.090459146, a: 1}
   itemIcon: {fileID: 1008709038, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: Fire Sword
+  itemDescription: 'Fire Sword
+
+    Score: 200'

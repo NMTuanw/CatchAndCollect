@@ -6,10 +6,20 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     public static event EventHandler OnObstacleCollect;
-    public ItemSO itemSO;
-    [SerializeField] private int obstacleDamage;
 
-    private void Update() {
+    [SerializeField] private int obstacleDamage;
+    public ItemSO itemSO;
+    public int collectedNumber;
+    private void Start()
+    {
+        collectedNumber = PlayerPrefs.GetInt(itemSO.itemName + "collectedNumber", 0);
+    }
+    private void Update()
+    {
+        Drop();
+    }
+    public void Drop()
+    {
         transform.Translate(Vector2.down * itemSO.droppingSpeed * Time.deltaTime);
     }
 
@@ -17,15 +27,14 @@ public class Obstacle : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
-            Debug.Log("Prob touched the ground.");
         }
 
         if (other.gameObject.CompareTag("Player"))
         {   
             Destroy(gameObject);
-            itemSO.collectedNumber += 1;
+            collectedNumber += 1;
+            PlayerPrefs.SetInt(itemSO.itemName + "collectedNumber", collectedNumber);
             HealthManager.Instance.RemoveHealth(obstacleDamage);
-            Debug.Log("Obstacle touched the player.");
             OnObstacleCollect?.Invoke(this, EventArgs.Empty);
 
         }

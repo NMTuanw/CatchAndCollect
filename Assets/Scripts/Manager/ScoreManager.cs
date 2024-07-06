@@ -7,26 +7,31 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
 
-    [SerializeField] private TextMeshProUGUI scoreText;
-
     public int firstStarScore;
     public int secondStarScore;
     public int thirdStarScore;
 
     public int score = 0;
-    private int currentStars = 0;
+    public int currentStars = 0;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
     }
+    private void Start()
+    {
+        score = 0;
+        currentStars = 0;
+    }
+
     public void AddScore(int amount)
     {
         score += amount;
@@ -46,22 +51,9 @@ public class ScoreManager : MonoBehaviour
         {
             currentStars = 1;
         }
-        else
-        {
-            currentStars = 0;
-        }
-        
-        if (levelSO.levelStars <= currentStars) // neu so star lon hon thi khong cap nhat
-        {
-            levelSO.levelStars = currentStars;
-        }
 
-        PlayerPrefs.SetInt("Level" + levelSO.levelIndex + "Stars", levelSO.levelStars);
-        PlayerPrefs.Save();
+        //PlayerPrefs.SetInt("Level" + levelSO.levelIndex + "Stars", currentStars);
+        //PlayerPrefs.Save();
     }
 
-    public int GetScore()
-    {
-        return score;
-    }
 }

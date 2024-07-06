@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Greatsword
   m_EditorClassIdentifier: 
   itemName: Greatsword
-  droppingSpeed: 20
-  gameScore: 50
+  droppingSpeed: 30
+  gameScore: 100
   itemColor: {r: 0.87169814, g: 0.8552896, b: 0.090459146, a: 1}
   itemIcon: {fileID: 1145680292, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: This is a sword
+  itemDescription: 'Greatsword
+
+    Score: 100'

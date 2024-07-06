@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Boneworm Green
   m_EditorClassIdentifier: 
   itemName: Boneworm Green
-  droppingSpeed: 100
+  droppingSpeed: 15
   gameScore: 0
   itemColor: {r: 0.9411765, g: 0.42352942, b: 0.40784314, a: 1}
   itemIcon: {fileID: 21300000, guid: db2650df5560a4643afab45b71aed262, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: '
+  itemDescription: 'Boneworm Green
 
-'
+    Damage: 15'

@@ -17,6 +17,6 @@ MonoBehaviour:
   gameScore: 0
   itemColor: {r: 0.93962264, g: 0.4235312, b: 0.4095336, a: 1}
   itemIcon: {fileID: 21300000, guid: f109b1f81117b6f4392074038ba5e4a1, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: '- A hell dog with three head'
+  itemDescription: 'Cerberus Green
+
+    Damage: 15'

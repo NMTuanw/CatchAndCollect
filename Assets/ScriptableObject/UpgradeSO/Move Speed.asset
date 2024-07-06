@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Move Speed
   upgradeIcon: {fileID: 21300000, guid: 7ac065b928a24994985f07a1d2dafa9c, type: 3}
   upgradeLevel: 10
-  upgradePrice: 100
+  upgradePrice: 50
   upgradeLevelCap: 25
   upgradeDescription: 'Increase Speed
 

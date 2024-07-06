@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Keris
   m_EditorClassIdentifier: 
   itemName: Keris
-  droppingSpeed: 20
+  droppingSpeed: 30
   gameScore: 30
   itemColor: {r: 0.87169814, g: 0.8552896, b: 0.090459146, a: 1}
   itemIcon: {fileID: 1936746835, guid: 6eb16e372762d6b4cb708c44ebfab931, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: 
+  itemDescription: 'Keris
+
+    Score: 30'

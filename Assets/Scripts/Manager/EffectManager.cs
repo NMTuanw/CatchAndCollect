@@ -9,6 +9,7 @@ public class EffectManager : MonoBehaviour
     [Header("Reference to Slider")]
     [SerializeField] private GameEffectSO gameEffectSO;
     [SerializeField] private Transform playerParticlePoint;
+
     private GameObject player;
     private void Awake()
     {
@@ -23,7 +24,13 @@ public class EffectManager : MonoBehaviour
         Item.OnItemCollect += Item_OnItemCollect;
         Obstacle.OnObstacleCollect += Obstacle_OnObstacleCollect;
         Coin.OnCoinCollect += Coin_OnCoinCollect;
+        Health.OnHealthCollect += Health_OnHealthCollect;
         HealthManager.OnPlayerDie += HealthManager_OnPlayerDie;
+    }
+
+    private void Health_OnHealthCollect(object sender, System.EventArgs e)
+    {
+        PlayGameEffect(gameEffectSO.coinEffect_1, playerParticlePoint.position, new Vector3(7, 7f, 7f), 1);
     }
 
     private void HealthManager_OnPlayerDie(object sender, System.EventArgs e)
@@ -52,6 +59,7 @@ public class EffectManager : MonoBehaviour
         Item.OnItemCollect -= Item_OnItemCollect;
         Obstacle.OnObstacleCollect -= Obstacle_OnObstacleCollect;
         Coin.OnCoinCollect -= Coin_OnCoinCollect;
+        Health.OnHealthCollect -= Health_OnHealthCollect;
         HealthManager.OnPlayerDie -= HealthManager_OnPlayerDie;
     }
     public void PlayGameEffect(ParticleSystem particleEffect, Vector3 particlePosition, Vector3 particleScale, float particleSpeed)

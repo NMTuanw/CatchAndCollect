@@ -6,26 +6,33 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public static event EventHandler OnCoinCollect;
-    public ItemSO itemSO;
     [SerializeField] private int coinValue;
-    [SerializeField] private float droppingSpeed;
-
-    private void Update() {
-        transform.Translate(Vector2.down * droppingSpeed * Time.deltaTime);
+    public ItemSO itemSO;
+    private int collectedNumber;
+    private void Start()
+    {
+        collectedNumber = PlayerPrefs.GetInt(itemSO.itemName + "collectedNumber", 0);
     }
-
+    private void Update()
+    {
+        Drop();
+    }
+    public void Drop()
+    {
+        transform.Translate(Vector2.down * itemSO.droppingSpeed * Time.deltaTime);
+    }
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("Ground"))
         {   
             Destroy(gameObject);
-            Debug.Log("Prob touched the ground.");
         }
         
         if (other.gameObject.CompareTag("Player"))
         {   
             Destroy(gameObject);
+            collectedNumber += 1;
+            PlayerPrefs.SetInt(itemSO.itemName + "collectedNumber", collectedNumber);
             CoinManager.instance.AddCoin(coinValue);
-            Debug.Log("Prob touched the player.");
             OnCoinCollect?.Invoke(this, EventArgs.Empty);
 
         }

@@ -17,8 +17,6 @@ MonoBehaviour:
   gameScore: 0
   itemColor: {r: 0.9411765, g: 0.42352942, b: 0.40784314, a: 1}
   itemIcon: {fileID: 21300000, guid: dfbd3b3ab84b9ad4bb7b4aa1177744a9, type: 3}
-  collectedNumber: 0
-  quantity: 0
-  itemDescription: '
+  itemDescription: 'Scorpion Black
 
-'
+    Damage: 20'

@@ -17,6 +17,15 @@ public class LevelSlot : MonoBehaviour
 
     [SerializeField] private GameObject levelLockImage;
     public Button levelButton;
+
+    public int currentLevelIndex;
+    private int highScore;
+    private int currentStars;
+    private void Start()
+    {
+        highScore = PlayerPrefs.GetInt("highScore" + levelSO.levelIndex, 0);
+        currentStars = PlayerPrefs.GetInt("Level" + levelSO.levelIndex + "Stars", 0);
+    }
     private void Update()
     {
         UpdateLevelSlotUI();
@@ -28,14 +37,14 @@ public class LevelSlot : MonoBehaviour
     {
         levelName.text = levelSO.levelName;
         levelBackground.sprite = levelSO.levelImage;
-        levelHighScore.text = levelSO.highScore.ToString();
+        levelHighScore.text = highScore.ToString();
     }
 
     private void UpdateLevelSlotStar()
     {
-        firstStar.SetActive(levelSO.levelStars >= 1);
-        secondStar.SetActive(levelSO.levelStars >= 2);
-        thirdStar.SetActive(levelSO.levelStars >= 3);
+        firstStar.SetActive(currentStars >= 1);
+        secondStar.SetActive(currentStars >= 2);
+        thirdStar.SetActive(currentStars >= 3);
     }
 
     private void UnlockLevelButton()
@@ -50,7 +59,11 @@ public class LevelSlot : MonoBehaviour
 
     public void ResetStat()
     {
-        levelSO.levelStars = 0;
-        levelSO.highScore = 0;
+        currentStars = 0;
+        highScore = 0;
+
+        PlayerPrefs.SetInt("highScore" + levelSO.levelIndex, highScore);
+
+        PlayerPrefs.SetInt("Level" + levelSO.levelIndex + "Stars", currentStars);
     }
 }
