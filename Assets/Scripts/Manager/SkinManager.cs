@@ -23,6 +23,21 @@ public class SkinManager : MonoBehaviour
 
         GameObject player = GameObject.FindWithTag("Player");
         playerSpriteRenderer = player.GetComponentInChildren<SpriteRenderer>();
+
+        LoadSkinStates();
+    }
+    private void LoadSkinStates()
+    {
+        foreach (var skin in skinSOArray)
+        {
+            skin.isUnlock = PlayerPrefs.GetInt(skin.skinName + "_isUnlock", 0) == 1;
+            skin.isSelect = PlayerPrefs.GetInt(skin.skinName + "_isSelect", 0) == 1;
+
+            if (skin.isSelect)
+            {
+                playerSpriteRenderer.sprite = skin.skinSprite;
+            }
+        }
     }
 
     public void ChangeSkin(SkinSO skinSO)
@@ -41,10 +56,13 @@ public class SkinManager : MonoBehaviour
             if (skin != skinSO)
             {
                 skin.isSelect = false;
+                PlayerPrefs.SetInt(skin.skinName + "_isSelect", 0);
             }
         }
 
         PlayerPrefs.SetString("SelectedSkin", skinSO.skinName);
+        PlayerPrefs.SetInt(skinSO.skinName + "_isSelect", 1);
+        PlayerPrefs.Save();
     }
 
     public Sprite GetSavedSkin()

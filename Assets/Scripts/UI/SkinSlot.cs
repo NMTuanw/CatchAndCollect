@@ -29,6 +29,9 @@ public class SkinSlot : MonoBehaviour
     {
         skinButton.onClick.AddListener(() => OnSkinButtonClick());
         ownedButton.onClick.AddListener(() => OnSkinButtonClick());
+
+        skinSO.isUnlock = PlayerPrefs.GetInt(skinSO.skinName + "_isUnlock", 0) == 1;
+        skinSO.isSelect = PlayerPrefs.GetInt(skinSO.skinName + "_isSelect", 0) == 1;
     }
     private void Update()
     {
@@ -74,6 +77,9 @@ public class SkinSlot : MonoBehaviour
         {
             CoinManager.instance.RemoveCoin(skinPrice);
             skinToPurchase.isUnlock = true;
+
+            PlayerPrefs.SetInt(skinToPurchase.skinName + "_isUnlock", 1);
+            PlayerPrefs.Save();
         }
     }
 }
