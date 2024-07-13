@@ -1,14 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    public static HealthManager instance;
-    public CharacterStats characterStats;
-    public GameObject player;
+    public static HealthManager Instance { get; private set; }
+
+    public static event EventHandler OnPlayerDie;
+
+    private CharacterStats characterStats;
+    private GameObject player;
 
     public int health;
+    public Image healthBar;
+    public TextMeshProUGUI healthText;
 
     private void Awake()
     {
@@ -16,21 +24,36 @@ public class HealthManager : MonoBehaviour
         characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
 
         // Singleton pattern
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
+        Instance = this;
         health = characterStats.health;
     }
-    
+    void Start()
+    {
+        health = characterStats.health;
+        UpdateHealthBar();
+    }
+
+    private void UpdateHealthBar()
+    {
+        healthText.text = "" + health;
+
+        if (healthBar != null)
+        {
+            healthBar.fillAmount =  (float)health / (float)characterStats.health;
+        }
+    }
+
     public void AddHealth(int value)
     {
-        health += value;
+        if (health < characterStats.health)
+        {
+            health += value;
+            if (health >= characterStats.health)
+            {
+                health = characterStats.health;
+            }
+        }
+        UpdateHealthBar();
     }
 
     public void RemoveHealth(int value)
@@ -41,6 +64,7 @@ public class HealthManager : MonoBehaviour
             health = 0;
             Die();
         } 
+        UpdateHealthBar();
     }
 
     private void Die()
@@ -48,9 +72,8 @@ public class HealthManager : MonoBehaviour
         if (player != null)
         {
             Destroy(player);
-            //GameManager.Instance.GameOver();
+            OnPlayerDie?.Invoke(this, EventArgs.Empty);
         }
-        Debug.Log("Player die");
     }
 
 }

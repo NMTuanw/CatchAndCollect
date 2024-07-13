@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,16 +12,11 @@ public class CharacterStats : MonoBehaviour
     public float defaultDashDuration;
     public float defaultDashCooldown;
 
-
-    [Header("Stats")]
     public int health;
     public int moveSpeed;
-
     public int dashSpeed;
     public float dashDuration;
     public float dashCooldown;
-
-    public CharacterStats() { }
 
     public void IncreaseHealth(int amount)
     {
@@ -46,7 +42,14 @@ public class CharacterStats : MonoBehaviour
     {
         dashCooldown -= amount;
     }
-
+    private void Awake()
+    {
+        LoadStats();
+    }
+    void Start()
+    {
+        LoadStats();
+    }
 
     public void SaveStats()
     {

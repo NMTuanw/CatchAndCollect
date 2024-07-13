@@ -6,41 +6,101 @@ using UnityEngine;
 
 public class GameStartCoundownUI : MonoBehaviour
 {
-    public static event Action GameStartCountdownFinished;
-    [SerializeField] private GameObject TimerCountdownToStartUI;
-    [SerializeField] private TextMeshProUGUI timerCountdownToStartText;
-    
-    [SerializeField] private float timerCountdownToStart;
+    //public event EventHandler GameStartCountdownFinished;
 
+    //public event EventHandler OnStateChanged;
+
+    //[SerializeField] private GameObject TimerCountdownToStartUI;
+    //[SerializeField] private TextMeshProUGUI timerCountdownToStartText;
+
+    //[SerializeField] private float timerCountdownToStart;
+    //private enum State
+    //{
+    //    WaitingToStart,
+    //    CountdownToStart,
+    //    GamePlaying,
+    //    GameOver,
+    //}
+    //private State state;
+
+    //private void Start()
+    //{
+    //    StartCoroutine(StartCountdown());
+    //    Show();
+    //}
+
+    //IEnumerator StartCountdown()
+    //{
+    //    timerCountdownToStartText.text = timerCountdownToStart.ToString();
+
+    //    yield return new WaitForSeconds(1f);
+
+    //    while (timerCountdownToStart > 1)
+    //    {
+    //        timerCountdownToStart--;
+
+    //        timerCountdownToStartText.text = timerCountdownToStart.ToString();
+
+    //        yield return new WaitForSeconds(1f);
+    //    }
+
+
+    //    Hide();
+
+    //    GameStartCountdownFinished?.Invoke(this, EventArgs.Empty);
+    //}
+    //private void Show(){
+    //    TimerCountdownToStartUI.SetActive(true);
+    //}
+
+    //private void Hide(){
+    //    TimerCountdownToStartUI.SetActive(false);
+    //}
+    private const string NUMBER_POPUP = "NumberPopup";
+    [SerializeField] private TextMeshProUGUI countdownText;
+
+    //private Animator animator;
+    private int previousCountdownNumber;
+    private void Awake()
+    {
+        //animator = GetComponent<Animator>();
+    }
     private void Start()
     {
-        StartCoroutine(StartCountdown());
+        CatchGameManager.Instance.OnStateChanged += CatchGameManager_OnStateChanged;
     }
-    IEnumerator StartCountdown()
+
+    private void Update()
     {
-        timerCountdownToStartText.text = timerCountdownToStart.ToString();
+        int countdownNumber = Mathf.CeilToInt(CatchGameManager.Instance.GetCountdownToStartTimer());
+        countdownText.text = countdownNumber.ToString();
 
-        yield return new WaitForSeconds(1f);
-
-        while (timerCountdownToStart > 1)
+        if (previousCountdownNumber != countdownNumber)
         {
-            timerCountdownToStart--;
-
-            timerCountdownToStartText.text = timerCountdownToStart.ToString();
-
-            yield return new WaitForSeconds(1f);
+            previousCountdownNumber = countdownNumber;
+            //animator.SetTrigger(NUMBER_POPUP);
+            //SoundManager.Instance.PlayCountdownNumber();
         }
-
-
-        Hide();
-
-        GameStartCountdownFinished?.Invoke();
     }
-    private void Show(){
-        TimerCountdownToStartUI.SetActive(true);
+    private void CatchGameManager_OnStateChanged(object sender, System.EventArgs e)
+    {
+        if (CatchGameManager.Instance.IsCountdownToStartActive())
+        {
+            Show();
+        }
+        else
+        {
+            Hide();
+        }
     }
 
-    private void Hide(){
-        TimerCountdownToStartUI.SetActive(false);
+    private void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    private void Hide()
+    {
+        gameObject.SetActive(false);
     }
 }

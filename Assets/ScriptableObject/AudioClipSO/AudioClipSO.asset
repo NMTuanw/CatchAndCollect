@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52eed3d56f260184b8f8c26c8df021fb, type: 3}
+  m_Name: AudioClipSO
+  m_EditorClassIdentifier: 
+  backgroundMusic: {fileID: 8300000, guid: 1ee1db844b070f04d87ebe1b2ead7532, type: 3}
+  collectSounds: []
+  collectSound: {fileID: 8300000, guid: 4d92aaf797567c843934916b5ab60436, type: 3}
+  buttonSound: {fileID: 8300000, guid: 843a03aabcf59d047bb75885a7cfb0be, type: 3}
+  bonusSound: {fileID: 8300000, guid: 507a803c2162f294aa3cbe87b10731e4, type: 3}
+  playerDeadSound: {fileID: 8300000, guid: 04caac4a35fec6640a128e028d0d7455, type: 3}
+  healSound: {fileID: 8300000, guid: 4a1d8c9e8feec184f8c33ba38d531b58, type: 3}
+  fartSound: {fileID: 8300000, guid: d913082e5314c354981b1d520962191a, type: 3}
+  footstep: {fileID: 8300000, guid: d913082e5314c354981b1d520962191a, type: 3}
+  warning: {fileID: 8300000, guid: d913082e5314c354981b1d520962191a, type: 3}
+  dashSound: {fileID: 8300000, guid: a846c74b77caed44aac108ae39e6b9e6, type: 3}

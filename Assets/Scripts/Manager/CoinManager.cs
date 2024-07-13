@@ -9,17 +9,14 @@ public class CoinManager : MonoBehaviour
 
     [Header("Variable")]
     public int coin;
-
-    [Header("UI")]
-    public TextMeshProUGUI coinText;
+    [SerializeField] private int coinSpended;
 
     void Awake()
-    {
+    { 
         // Singleton pattern
         if (instance == null)
         {
             instance = this;
-            //DontDestroyOnLoad(gameObject);
             LoadCoins();
         }
         else
@@ -27,7 +24,6 @@ public class CoinManager : MonoBehaviour
             Destroy(gameObject);
         }
         LoadCoins();
-        UpdateCoinTextUI();
     }
 
     private void OnApplicationQuit()
@@ -39,14 +35,12 @@ public class CoinManager : MonoBehaviour
     {
         coin += amount;
         SaveCoins();
-        UpdateCoinTextUI();
     }
 
     public void RemoveCoin(int amount)
     {
         coin -= amount;
         SaveCoins();
-        UpdateCoinTextUI();
     }
 
     public void SpendCoins(int amount)
@@ -54,32 +48,33 @@ public class CoinManager : MonoBehaviour
         if (coin >= amount)
         {
             coin -= amount;
+            coinSpended += amount;
             SaveCoins();
-            UpdateCoinTextUI();
         }
         else
         {
             Debug.Log("Not enough coins!");
+            return;
         }
     }
 
-    void UpdateCoinTextUI()
+    public void ResetCoins()
     {
-        if (coinText != null)
-        {
-            coinText.text = "" + coin;
-        }
+        coin += coinSpended;
+        coinSpended = 0;
+        SaveCoins();
     }
 
     public void SaveCoins()
     {
-        PlayerPrefs.SetInt("CoinCount", coin); // Lưu số coin vào PlayerPrefs
+        PlayerPrefs.SetInt("Coin", coin); // Lưu số coin vào PlayerPrefs
+        PlayerPrefs.SetInt("CoinSpended", coinSpended); 
         PlayerPrefs.Save();
     }
 
     public void LoadCoins()
     {
-        coin = PlayerPrefs.GetInt("CoinCount", 0); // Load số coin từ PlayerPrefs
-        UpdateCoinTextUI();
+        coin = PlayerPrefs.GetInt("Coin", 0); // Neu khong ton tai thi se load ve default value la 0
+        coinSpended = PlayerPrefs.GetInt("CoinSpended", 0); 
     }
 }
